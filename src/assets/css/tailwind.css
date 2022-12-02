@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Quicksand:wght@400;500;600;700&display=swap');
+@import "switch.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind screens;
+@tailwind variants;
+
+/* Base styling */
+@layer base {
+    body {
+        @apply bg-gray-100 dark:bg-dark text-[14px] relative scroll-smooth font-normal leading-[1.4] mx-auto;
+    }
+
+    a {
+        @apply text-black hover:text-theme dark:hover:text-theme transition-all hover:opacity-80;
+    }
+
+    ::-webkit-scrollbar {
+        width: 5px;
+        height: 0;
+    }
+
+    body::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background-color: darkgrey;
+        outline: 1px solid slategrey;
+    }
+}
+
+/* Add components styling */
+@layer components {
+    .sPulse {
+        @apply relative overflow-visible;
+    }
+
+    .sPulse::before {
+        content: '';
+        border-radius: inherit;
+        transition: opacity .3s, transform .3s;
+        z-index: -1;
+        @apply block absolute w-full h-full inset-0 bg-inherit animate-sPulse;
+    }
+
+    .container-fluid {
+        --gutter-x: 1.5rem;
+        --gutter-y: 0;
+        width: 100%;
+        padding-right: calc(var(--gutter-x) * .5);
+        padding-left: calc(var(--gutter-x) * .5);
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .btn {
+        @apply bg-theme rounded inline-block text-white tracking-widest uppercase px-6 py-3 shadow-md drop-shadow-sm font-bold outline-0 focus:outline-0 hover:bg-opacity-90 transition-colors;
+    }
+
+    .btn[aria-disabled="true"], .btn[disabled] {
+        @apply bg-gray-200 text-gray-400 cursor-not-allowed;
+    }
+
+    .form-group {
+        @apply mb-4;
+    }
+
+    .form-group .input-icon {
+        @apply relative text-gray-500;
+    }
+
+    .form-group .input-icon .icon {
+        @apply absolute left-[10px] top-[15px];
+    }
+
+    .form-group .input-icon .form-control {
+        @apply pl-10;
+    }
+
+    .col-form-label {
+        @apply block font-semibold mb-2 tracking-wider;
+    }
+
+    .form-control, .form-select, .form-textarea {
+        @apply block ring-0 outline-0 outline-offset-0 shadow-none focus:ring-0 focus:outline-0 focus:shadow-none focus:ring-transparent focus:border-theme w-full py-2.5 transition-all px-4 rounded border-2 border-gray-200 dark:border-darkOne dark:focus:border-theme/50 focus:shadow focus:drop-shadow-lg bg-white dark:bg-darkOne;
+    }
+
+    .form-checkbox
+    .form-select {
+        @apply border-2 border-gray-100 rounded outline-0;
+    }
+
+    .form-checkbox {
+        @apply w-[20px] h-[20px] inline-block border-2 border-gray-200 text-theme bg-transparent rounded ring-0 outline-0 outline-offset-0 shadow-none focus:ring-0 focus:outline-0 focus:shadow-none focus:ring-transparent;
+    }
+
+    .form-checkbox-label {
+        @apply w-[calc(100%-20px)] ml-5 text-sm font-medium inline-block;
+    }
+
+    .form-textarea {
+        @apply py-3 rounded;
+    }
+
+    iframe {
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Table */
+    .table-responsive {
+        @apply flex flex-col overflow-x-auto sm:-mx-6 lg:-mx-8;
+    }
+
+    .table-responsive .table {
+        @apply py-2 inline-block min-w-full sm:px-6 lg:px-8;
+    }
+
+    .table table {
+        @apply min-w-full border text-center w-full;
+    }
+
+    .table thead th {
+        @apply bg-gray-50 border-b text-sm font-bold text-gray-900 px-6 py-4;
+    }
+
+    .table tbody tr {
+        @apply bg-white border-b last:border-b-0;
+    }
+
+    .table tbody tr td {
+        @apply border-r px-6 py-4 text-sm font-medium text-gray-900 max-w-[150px];
+    }
+
+    .nav-icon {
+        @apply dark:text-white text-4xl font-extrabold inline-flex items-center justify-center;
+    }
+
+    .nav-icon.active {
+        @apply text-theme;
+    }
+
+    .progress {
+        @apply relative w-full block bg-theme h-[5px];
+    }
+
+    .btn-action-icon {
+        @apply text-2xl p-2;
+    }
+
+    .btn-action-icon.play {
+        @apply bg-theme/70 rounded-full shadow-sm drop-shadow-md;
+    }
+
+    .btn-fls {
+        @apply text-xs font-head font-extrabold flex px-4 py-1;
+    }
+
+    .btn-fls.active {
+        @apply bg-theme text-dark;
+    }
+
+    .general {
+        @apply relative min-h-[calc(100vh-135px)]
+    }
+
+
+}
+
