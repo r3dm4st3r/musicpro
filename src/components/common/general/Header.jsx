@@ -25,7 +25,7 @@ const Header = () => {
 									</li>
 								);
 							})}
-							<li className="inline-flex items-center justify-center ml-5">
+							<li className="inline-flex items-center justify-center">
 								<ToggleTheme />
 							</li>
 						</ul>

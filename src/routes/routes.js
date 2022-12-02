@@ -8,8 +8,14 @@ const RegisterPage = lazy(() => import('../pages/auth/RegisterPage'));
 const ForgotPasswordPage = lazy(() => import('../pages/auth/ForgotPasswordPage'));
 
 // Import General Routes
-const HomePage = lazy(() => import('../pages/general/home/HomePage'));
-const SearchPage = lazy(() => import('../pages/general/search/SearchPage'));
+const TrendingPage = lazy(() => import('../pages/general/TrendingPage'));
+const AlbumPage = lazy(() => import('../pages/general/AlbumPage'));
+const ChartPage = lazy(() => import('../pages/general/ChartPage'));
+const PlayListPage = lazy(() => import('../pages/general/PlayListPage'));
+const ArtistPage = lazy(() => import('../pages/general/ArtistPage'));
+const DiscoverPage = lazy(() => import('../pages/general/DiscoverPage'));
+const RadioPage = lazy(() => import('../pages/general/RadioPage'));
+const SearchPage = lazy(() => import('../pages/general/SearchPage'));
 
 // Import Dashboard Routes
 const Dashboard = lazy(() => import('../pages/dashboard/Dashboard'));
@@ -45,32 +51,72 @@ export const AUTH_ROUTES = [
 // Public Routes
 export const GENERAL_ROUTES = [
 	{
-		path: GENERAL_BASE_ROUTES.HOME,
-		name: 'Home',
-		icon: <Icon width={30} icon="carbon:home" />,
+		path: GENERAL_BASE_ROUTES.TRENDING,
+		name: 'Trending',
+		icon: <Icon width={30} icon="fluent-emoji:fire" />,
 		component: (
 			<Suspense fallback={''}>
-				<HomePage />
+				<TrendingPage />
 			</Suspense>
 		),
 	},
 	{
 		path: GENERAL_BASE_ROUTES.ALBUMS,
-		name: 'About',
-		icon: <Icon width={30} icon="iconoir:album-carousel" />,
+		name: 'New Albums',
+		icon: <Icon width={30} icon="fluent-emoji:clapper-board" />,
 		component: (
 			<Suspense fallback={''}>
-				<HomePage />
+				<AlbumPage />
+			</Suspense>
+		),
+	},
+	{
+		path: GENERAL_BASE_ROUTES.CHARTS,
+		name: 'Top Charts',
+		icon: <Icon width={28} icon="fluent-emoji:bar-chart" />,
+		component: (
+			<Suspense fallback={''}>
+				<ChartPage />
 			</Suspense>
 		),
 	},
 	{
 		path: GENERAL_BASE_ROUTES.PLAYLISTS,
-		name: 'About',
-		icon: <Icon width={28} icon="cil:album" />,
+		name: 'Top Playlists',
+		icon: <Icon width={28} icon="fluent-emoji:glowing-star" />,
 		component: (
 			<Suspense fallback={''}>
-				<HomePage />
+				<PlayListPage />
+			</Suspense>
+		),
+	},
+	{
+		path: GENERAL_BASE_ROUTES.ARTISTS,
+		name: 'Top Artists',
+		icon: <Icon width={28} icon="fluent-emoji:man-singer-medium-light" />,
+		component: (
+			<Suspense fallback={''}>
+				<ArtistPage />
+			</Suspense>
+		),
+	},
+	{
+		path: GENERAL_BASE_ROUTES.DISCOVER,
+		name: 'Discover',
+		icon: <Icon width={28} icon="fluent-emoji:umbrella-on-ground" />,
+		component: (
+			<Suspense fallback={''}>
+				<DiscoverPage />
+			</Suspense>
+		),
+	},
+	{
+		path: GENERAL_BASE_ROUTES.RADIO,
+		name: 'Radio',
+		icon: <Icon width={28} icon="fluent-emoji:radio" />,
+		component: (
+			<Suspense fallback={''}>
+				<RadioPage />
 			</Suspense>
 		),
 	},

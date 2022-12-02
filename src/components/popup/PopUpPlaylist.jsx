@@ -41,7 +41,7 @@ const PopUpPlaylist = () => {
 							</div>
 							<div>
 								<label className="cl-switch cl-switch-green">
-									<input type="checkbox" checked />
+									<input type="checkbox" />
 									<span className="switcher"></span>
 								</label>
 							</div>

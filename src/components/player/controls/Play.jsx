@@ -6,13 +6,17 @@ const Play = (props) => {
 	const { togglePlayPause, playing } = props;
 	return (
 		<AnimatePresence>
-			<button className="btn-action-icon play" onClick={togglePlayPause}>
+			<button className="btn-action-icon overflow-hidden play" onClick={togglePlayPause}>
 				{!playing && (
 					<motion.div
-						initial={{ opacity: 0, scale: 0 }}
-						animate={{ opacity: 1, scale: 1 }}
-						transition={{ type: 'just', stiffness: 100, ease: 'backIn' }}
-						exit={{ opacity: 0, scale: 0 }}
+						initial={{ opacity: 0, scale: 0, y: -150 }}
+						animate={{ opacity: 1, scale: 1, y: 0 }}
+						exit={{ opacity: 0, scale: 0, y: -150 }}
+						transition={{
+							type: 'spring',
+							stiffness: 90,
+							ease: 'linear',
+						}}
 					>
 						<span>
 							<Icon icon="mdi:play" />
@@ -21,10 +25,14 @@ const Play = (props) => {
 				)}
 				{playing && (
 					<motion.div
-						initial={{ opacity: 0, scale: 0 }}
-						animate={{ opacity: 1, scale: 1 }}
-						transition={{ type: 'just', stiffness: 100, ease: 'backIn' }}
-						exit={{ opacity: 0, scale: 0 }}
+						initial={{ opacity: 0, scale: 0, y: 150 }}
+						animate={{ opacity: 1, scale: 1, y: 0 }}
+						exit={{ opacity: 0, scale: 0, y: 150 }}
+						transition={{
+							type: 'spring',
+							stiffness: 90,
+							ease: 'linear',
+						}}
 					>
 						<span>
 							<Icon icon="mdi:pause" />

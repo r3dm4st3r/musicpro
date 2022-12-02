@@ -136,11 +136,13 @@
     }
 
     .nav-icon {
-        @apply dark:text-white text-4xl font-extrabold inline-flex items-center justify-center;
+        @apply relative dark:text-white text-4xl font-extrabold inline-flex items-center justify-center;
     }
 
-    .nav-icon.active {
-        @apply text-theme;
+    .nav-icon.active::before {
+        content: '';
+        position: absolute;
+        @apply w-1.5 h-1.5 bottom-[-10px] left-0 right-0 absolute text-theme mx-auto bg-theme rounded-full;
     }
 
     .progress {
