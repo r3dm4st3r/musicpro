@@ -23,7 +23,7 @@ const Greetings = () => {
 	});
 
 	return (
-		<div className="flex text-2xl relative py-4 tracking-wide gap-2">
+		<div className="flex text-2xl relative tracking-wide">
 			<div className="font-head font-extrabold text-darkOne dark:text-light">
 				<span>{welcome}</span>
 			</div>

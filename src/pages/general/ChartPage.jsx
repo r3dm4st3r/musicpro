@@ -15,15 +15,13 @@ const ChartPage = () => {
 	});
 
 	return (
-		<>
-			<section className="dark:text-light py-4">
-				<div className="container">
-					<div className="mb-10">
-						<TopChart />
-					</div>
+		<section className="dark:text-light py-4">
+			<div className="container">
+				<div className="mb-10">
+					<TopChart />
 				</div>
-			</section>
-		</>
+			</div>
+		</section>
 	);
 };
 export default ChartPage;

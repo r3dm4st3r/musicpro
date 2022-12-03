@@ -15,15 +15,13 @@ const PlayListPage = () => {
 	});
 
 	return (
-		<>
-			<section className="dark:text-light py-4">
-				<div className="container">
-					<div className="mb-10">
-						<TopPlaylist />
-					</div>
+		<section className="dark:text-light py-4">
+			<div className="container">
+				<div className="mb-10">
+					<TopPlaylist />
 				</div>
-			</section>
-		</>
+			</div>
+		</section>
 	);
 };
 export default PlayListPage;

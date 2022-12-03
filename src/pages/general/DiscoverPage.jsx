@@ -15,15 +15,13 @@ const DiscoverPage = () => {
 	});
 
 	return (
-		<>
-			<section className="dark:text-light py-4">
-				<div className="container">
-					<div className="mb-10">
-						<Discover />
-					</div>
+		<section className="dark:text-light py-4">
+			<div className="container">
+				<div className="mb-10">
+					<Discover />
 				</div>
-			</section>
-		</>
+			</div>
+		</section>
 	);
 };
 export default DiscoverPage;

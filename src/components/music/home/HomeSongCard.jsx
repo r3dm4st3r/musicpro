@@ -1,9 +1,13 @@
 import { Icon } from '@iconify/react';
+import { Link } from 'react-router-dom';
 
 const HomeSongCard = (props) => {
-	const { song } = props;
+	const { song, type } = props;
 	return (
-		<div className="bg-white dark:bg-darkOne shadow drop-shadow-sm transition-all group">
+		<Link
+			to={`/${type}/${song.id}`}
+			className="bg-white dark:bg-darkOne shadow drop-shadow-sm transition-all group"
+		>
 			<div className="relative  cursor-pointer">
 				<img src={song.thumb.lg} alt={song.title} />
 				<div className="absolute group-hover:scale-100 scale-0 transition-transform inset-0 z-0 w-full h-full flex items-center justify-center">
@@ -12,7 +16,8 @@ const HomeSongCard = (props) => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</Link>
 	);
 };
+
 export default HomeSongCard;

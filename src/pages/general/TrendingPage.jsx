@@ -4,6 +4,7 @@ import { useSingleEffect } from 'react-haiku';
 import { TRIGGER_HOME_DATA } from '../../redux/actions/music/home.actions';
 import { HOME_HAS_DATA } from '../../redux/reducers/music/home/home.slice';
 import NewTrending from '../../components/music/home/NewTrending';
+import NewAlbum from '../../components/music/home/NewAlbum';
 
 const TrendingPage = () => {
 	const dispatch = useDispatch();
@@ -16,19 +17,20 @@ const TrendingPage = () => {
 	});
 
 	return (
-		<>
-			<section className="dark:text-light py-4">
-				<div className="container">
-					<div className="grid grid-cols-1">
-						<Greetings />
-					</div>
-
-					<div className="mb-10">
-						<NewTrending />
-					</div>
+		<section className="dark:text-light py-4">
+			<div className="container">
+				<div className="grid grid-cols-1">
+					<Greetings />
 				</div>
-			</section>
-		</>
+
+				<div className="mb-10">
+					<NewTrending />
+				</div>
+				<div className="mb-10">
+					<NewAlbum />
+				</div>
+			</div>
+		</section>
 	);
 };
 export default TrendingPage;

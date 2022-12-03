@@ -1,5 +1,10 @@
 import { lazy, Suspense } from 'react';
-import { AUTH_BASE_ROUTES, DASHBOARD_BASE_ROUTES, GENERAL_BASE_ROUTES } from './baseRoutes';
+import {
+	AUTH_BASE_ROUTES,
+	DASHBOARD_BASE_ROUTES,
+	GENERAL_BASE_ROUTES,
+	GENERAL_BASE_SUB_ROUTES,
+} from './baseRoutes';
 import { Icon } from '@iconify/react';
 
 // Import Auth Routes
@@ -17,8 +22,11 @@ const DiscoverPage = lazy(() => import('../pages/general/DiscoverPage'));
 const RadioPage = lazy(() => import('../pages/general/RadioPage'));
 const SearchPage = lazy(() => import('../pages/general/SearchPage'));
 
+// Details Page Import
+const AlbumDetailsPage = lazy(() => import('../pages/general/details/AlbumDetailsPage'));
+
 // Import Dashboard Routes
-const Dashboard = lazy(() => import('../pages/dashboard/Dashboard'));
+const Dashboard = lazy(() => import('../pages/general/details/AlbumDetailsPage'));
 
 // Authentication Routes
 export const AUTH_ROUTES = [
@@ -61,7 +69,7 @@ export const GENERAL_ROUTES = [
 		),
 	},
 	{
-		path: GENERAL_BASE_ROUTES.ALBUMS,
+		path: GENERAL_BASE_ROUTES.ALBUM,
 		name: 'New Albums',
 		icon: <Icon width={30} icon="fluent-emoji:clapper-board" />,
 		component: (
@@ -71,7 +79,7 @@ export const GENERAL_ROUTES = [
 		),
 	},
 	{
-		path: GENERAL_BASE_ROUTES.CHARTS,
+		path: GENERAL_BASE_ROUTES.CHART,
 		name: 'Top Charts',
 		icon: <Icon width={28} icon="fluent-emoji:bar-chart" />,
 		component: (
@@ -81,7 +89,7 @@ export const GENERAL_ROUTES = [
 		),
 	},
 	{
-		path: GENERAL_BASE_ROUTES.PLAYLISTS,
+		path: GENERAL_BASE_ROUTES.PLAYLIST,
 		name: 'Top Playlists',
 		icon: <Icon width={28} icon="fluent-emoji:glowing-star" />,
 		component: (
@@ -91,7 +99,7 @@ export const GENERAL_ROUTES = [
 		),
 	},
 	{
-		path: GENERAL_BASE_ROUTES.ARTISTS,
+		path: GENERAL_BASE_ROUTES.ARTIST,
 		name: 'Top Artists',
 		icon: <Icon width={28} icon="fluent-emoji:man-singer-medium-light" />,
 		component: (
@@ -127,6 +135,17 @@ export const GENERAL_ROUTES = [
 		component: (
 			<Suspense fallback={''}>
 				<SearchPage />
+			</Suspense>
+		),
+	},
+];
+export const GENERAL_SUB_ROUTES = [
+	{
+		path: GENERAL_BASE_SUB_ROUTES.ALBUM,
+		name: 'Album Details',
+		component: (
+			<Suspense fallback={''}>
+				<AlbumDetailsPage />
 			</Suspense>
 		),
 	},

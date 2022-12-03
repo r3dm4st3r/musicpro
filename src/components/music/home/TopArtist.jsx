@@ -1,4 +1,3 @@
-import { Icon } from '@iconify/react';
 import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { HOME_DATA } from '../../../redux/reducers/music/home/home.slice';
@@ -12,12 +11,12 @@ const TopArtist = () => {
 		<div>
 			<PageHeading name="Top Artists" icon="fluent-emoji:man-singer-medium-light" />
 			<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-5">
-				{home.artists.map((aritst, aritstIndex) => {
+				{home.artists.map((item, index) => {
 					return (
 						<motion.div
-							key={aritst.perma_id}
+							key={item.id}
 							transition={{
-								delay: 0.02 * aritstIndex,
+								delay: 0.02 * index,
 								type: 'tween',
 								ease: 'backInOut',
 								stiffness: 100,
@@ -30,7 +29,7 @@ const TopArtist = () => {
 							exit={{ opacity: 0, y: 100 }}
 							viewport={{ once: true }}
 						>
-							<HomeSongCard song={aritst} key={`${aritstIndex}${aritst.perma_id}`} />
+							<HomeSongCard song={item} type={item.type} key={`${index}${item.id}`} />
 						</motion.div>
 					);
 				})}

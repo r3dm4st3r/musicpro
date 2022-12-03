@@ -1,29 +1,27 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useSingleEffect } from 'react-haiku';
-import { TRIGGER_HOME_DATA } from '../../redux/actions/music/home.actions';
-import { HOME_HAS_DATA } from '../../redux/reducers/music/home/home.slice';
-import NewAlbum from '../../components/music/home/NewAlbum';
+import { ALBUM_HAS_DATA } from '../../redux/reducers/music/album/album.slice';
+import { TRIGGER_ALBUM_DATA } from '../../redux/actions/music/album.actions';
+import LatestAlbum from '../../components/music/album/LatestAlbum';
 
 const AlbumPage = () => {
 	const dispatch = useDispatch();
-	const hasData = useSelector(HOME_HAS_DATA);
+	const hasAlbumData = useSelector(ALBUM_HAS_DATA);
 
 	useSingleEffect(() => {
-		if (!hasData) {
-			dispatch(TRIGGER_HOME_DATA());
+		if (!hasAlbumData) {
+			dispatch(TRIGGER_ALBUM_DATA());
 		}
 	});
 
 	return (
-		<>
-			<section className="dark:text-light py-4">
-				<div className="container">
-					<div className="mb-10">
-						<NewAlbum />
-					</div>
+		<section className="dark:text-light py-4">
+			<div className="container">
+				<div className="mb-10">
+					<LatestAlbum />
 				</div>
-			</section>
-		</>
+			</div>
+		</section>
 	);
 };
 export default AlbumPage;

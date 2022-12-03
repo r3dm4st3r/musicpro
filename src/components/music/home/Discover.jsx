@@ -1,4 +1,3 @@
-import { Icon } from '@iconify/react';
 import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { HOME_DATA } from '../../../redux/reducers/music/home/home.slice';
@@ -12,12 +11,12 @@ const Discover = () => {
 		<div>
 			<PageHeading name="Discover" icon="fluent-emoji:umbrella-on-ground" />
 			<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-5">
-				{home.discover.map((discover, discoverIndex) => {
+				{home.discover.map((item, index) => {
 					return (
 						<motion.div
-							key={discover.perma_id}
+							key={item.id}
 							transition={{
-								delay: 0.02 * discoverIndex,
+								delay: 0.02 * index,
 								type: 'tween',
 								ease: 'backInOut',
 								stiffness: 100,
@@ -30,10 +29,7 @@ const Discover = () => {
 							exit={{ opacity: 0, y: 100 }}
 							viewport={{ once: true }}
 						>
-							<HomeSongCard
-								song={discover}
-								key={`${discoverIndex}${discover.perma_id}`}
-							/>
+							<HomeSongCard song={item} type={item.type} key={`${index}${item.id}`} />
 						</motion.div>
 					);
 				})}

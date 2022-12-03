@@ -1,4 +1,3 @@
-import { Icon } from '@iconify/react';
 import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { HOME_DATA } from '../../../redux/reducers/music/home/home.slice';
@@ -12,12 +11,12 @@ const TopPlaylist = () => {
 		<div>
 			<PageHeading name="Top Playlists" icon="fluent-emoji:glowing-star" />
 			<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-5">
-				{home.top_playlists.map((playlist, playlistIndex) => {
+				{home.top_playlists.map((item, index) => {
 					return (
 						<motion.div
-							key={playlist.perma_id}
+							key={item.id}
 							transition={{
-								delay: 0.02 * playlistIndex,
+								delay: 0.02 * index,
 								type: 'tween',
 								ease: 'backInOut',
 								stiffness: 100,
@@ -30,10 +29,7 @@ const TopPlaylist = () => {
 							exit={{ opacity: 0, y: 100 }}
 							viewport={{ once: true }}
 						>
-							<HomeSongCard
-								song={playlist}
-								key={`${playlistIndex}${playlist.perma_id}`}
-							/>
+							<HomeSongCard song={item} type={item.type} key={`${index}${item.id}`} />
 						</motion.div>
 					);
 				})}

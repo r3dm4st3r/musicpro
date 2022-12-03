@@ -15,15 +15,13 @@ const ArtistPage = () => {
 	});
 
 	return (
-		<>
-			<section className="dark:text-light py-4">
-				<div className="container">
-					<div className="mb-10">
-						<TopArtist />
-					</div>
+		<section className="dark:text-light py-4">
+			<div className="container">
+				<div className="mb-10">
+					<TopArtist />
 				</div>
-			</section>
-		</>
+			</div>
+		</section>
 	);
 };
 export default ArtistPage;

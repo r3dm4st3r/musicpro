@@ -14,15 +14,13 @@ const RadioPage = () => {
 		}
 	});
 	return (
-		<>
-			<section className="dark:text-light py-4">
-				<div className="container">
-					<div className="mb-10">
-						<TopRadio />
-					</div>
+		<section className="dark:text-light py-4">
+			<div className="container">
+				<div className="mb-10">
+					<TopRadio />
 				</div>
-			</section>
-		</>
+			</div>
+		</section>
 	);
 };
 export default RadioPage;

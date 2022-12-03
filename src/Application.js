@@ -1,4 +1,4 @@
-import { AUTH_ROUTES, DASHBOARD_ROUTES, GENERAL_ROUTES } from './routes/routes';
+import { AUTH_ROUTES, DASHBOARD_ROUTES, GENERAL_ROUTES, GENERAL_SUB_ROUTES } from './routes/routes';
 import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 
@@ -48,6 +48,15 @@ function Application() {
 					}
 				>
 					{GENERAL_ROUTES.map((routeItem, routeIndex) => {
+						return (
+							<Route
+								key={routeIndex}
+								path={routeItem.path}
+								element={routeItem.component}
+							/>
+						);
+					})}
+					{GENERAL_SUB_ROUTES.map((routeItem, routeIndex) => {
 						return (
 							<Route
 								key={routeIndex}

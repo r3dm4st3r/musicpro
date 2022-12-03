@@ -150,7 +150,7 @@
     }
 
     .btn-action-icon {
-        @apply text-2xl p-2;
+        @apply text-2xl p-2 w-[40px] h-[40px];
     }
 
     .btn-action-icon.play {
