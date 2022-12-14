@@ -1,16 +1,16 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useSingleEffect } from 'react-haiku';
-import { TRIGGER_HOME_DATA } from '../../redux/actions/music/home.actions';
-import { HOME_HAS_DATA } from '../../redux/reducers/music/home/home.slice';
-import TopPlaylist from '../../components/music/home/TopPlaylist';
+import { PLAYLIST_LOADING } from '../../redux/reducers/music/playlist/playlist.slice';
+import { TRIGGER_PLAYLIST_DATA } from '../../redux/actions/music/playlist.actions';
+import Playlists from '../../components/music/playlist/Playlists';
 
 const PlayListPage = () => {
 	const dispatch = useDispatch();
-	const hasData = useSelector(HOME_HAS_DATA);
+	const loading = useSelector(PLAYLIST_LOADING);
 
 	useSingleEffect(() => {
-		if (!hasData) {
-			dispatch(TRIGGER_HOME_DATA());
+		if (!loading.listsData) {
+			dispatch(TRIGGER_PLAYLIST_DATA());
 		}
 	});
 
@@ -18,7 +18,7 @@ const PlayListPage = () => {
 		<section className="dark:text-light py-4">
 			<div className="container">
 				<div className="mb-10">
-					<TopPlaylist />
+					<Playlists />
 				</div>
 			</div>
 		</section>

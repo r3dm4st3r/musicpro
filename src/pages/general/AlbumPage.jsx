@@ -1,15 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useSingleEffect } from 'react-haiku';
-import { ALBUM_HAS_DATA } from '../../redux/reducers/music/album/album.slice';
+import { ALBUM_LOADING } from '../../redux/reducers/music/album/album.slice';
 import { TRIGGER_ALBUM_DATA } from '../../redux/actions/music/album.actions';
 import LatestAlbum from '../../components/music/album/LatestAlbum';
 
 const AlbumPage = () => {
 	const dispatch = useDispatch();
-	const hasAlbumData = useSelector(ALBUM_HAS_DATA);
+	const loading = useSelector(ALBUM_LOADING);
 
 	useSingleEffect(() => {
-		if (!hasAlbumData) {
+		if (!loading.listsData) {
 			dispatch(TRIGGER_ALBUM_DATA());
 		}
 	});

@@ -10,6 +10,7 @@
 /* Base styling */
 @layer base {
     body {
+        /*zoom: 1.3;*/
         @apply bg-gray-100 dark:bg-dark text-[14px] relative scroll-smooth font-normal leading-[1.4] mx-auto;
     }
 
@@ -167,6 +168,30 @@
 
     .general {
         @apply relative min-h-[calc(100vh-135px)]
+    }
+
+    .loader {
+        @apply overflow-hidden relative w-[64px] h-[64px] transform rotate-[45deg] bg-theme/30;
+    }
+
+    .loader:after {
+        content: '';
+        @apply bg-theme/80 m-auto inset-[8px] absolute;
+    }
+
+    .loader:before {
+        content: '';
+        animation: diamondLoader 2s linear infinite;
+        @apply bg-darkOne m-auto inset-[-15px] absolute;
+    }
+
+    @keyframes diamondLoader {
+        0%, 10% {
+            transform: translate(-64px, -64px) rotate(-45deg)
+        }
+        90%, 100% {
+            transform: translate(0px, 0px) rotate(-45deg)
+        }
     }
 
 

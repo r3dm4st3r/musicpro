@@ -1,18 +1,21 @@
-import { useSelector } from 'react-redux';
-import { ALBUM_DATA } from '../../../redux/reducers/music/album/album.slice';
 import { motion } from 'framer-motion';
 import PageHeading from '../../common/heading/PageHeading';
 import HomeSongCard from '../home/HomeSongCard';
+import { useSelector } from 'react-redux';
+import { PLAYLIST_DATA } from '../../../redux/reducers/music/playlist/playlist.slice';
 
-const LatestAlbum = () => {
-	const album = useSelector(ALBUM_DATA);
+const Playlists = () => {
+	const playlists = useSelector(PLAYLIST_DATA);
 
 	return (
 		<>
 			<div>
-				<PageHeading name="New Albums" icon="fluent-emoji:clapper-board" />
+				<PageHeading
+					name="Featured Playlists"
+					icon="fluent-emoji:man-singer-medium-light"
+				/>
 				<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-5">
-					{album.map((item, index) => {
+					{playlists.map((item, index) => {
 						return (
 							<motion.div
 								key={item.id}
@@ -43,4 +46,4 @@ const LatestAlbum = () => {
 		</>
 	);
 };
-export default LatestAlbum;
+export default Playlists;

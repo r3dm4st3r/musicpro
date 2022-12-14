@@ -5,6 +5,7 @@ import { TRIGGER_HOME_DATA } from '../../redux/actions/music/home.actions';
 import { HOME_HAS_DATA } from '../../redux/reducers/music/home/home.slice';
 import NewTrending from '../../components/music/home/NewTrending';
 import NewAlbum from '../../components/music/home/NewAlbum';
+import TopArtists from '../../components/music/home/TopArtists';
 
 const TrendingPage = () => {
 	const dispatch = useDispatch();
@@ -28,6 +29,9 @@ const TrendingPage = () => {
 				</div>
 				<div className="mb-10">
 					<NewAlbum />
+				</div>
+				<div className="mb-10">
+					<TopArtists />
 				</div>
 			</div>
 		</section>

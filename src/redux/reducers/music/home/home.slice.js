@@ -6,7 +6,7 @@ const initialState = {
 	top_playlists: [],
 	charts: [],
 	discover: [],
-	artists: [],
+	artist_radio: [],
 	radio: [],
 	hasData: false,
 };

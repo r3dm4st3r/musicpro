@@ -3,6 +3,7 @@ import { combineReducers } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import { globalReducer } from './global/global.reducer';
 import { musicReducer } from './music/music.reducer';
+import { playerReducer } from './player/player.reducer';
 
 const appConfig = {
 	key: 'global',
@@ -13,4 +14,5 @@ const appConfig = {
 export const rootReducer = combineReducers({
 	global: persistReducer(appConfig, globalReducer),
 	music: musicReducer,
+	player: playerReducer,
 });

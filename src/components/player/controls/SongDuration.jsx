@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 const SongDuration = (props) => {
 	const { ready } = props;
-	const { position } = useAudioPosition({
+	const { position, duration } = useAudioPosition({
 		highRefreshRate: true,
 	});
 	const [songTime, setSongTime] = useState('');
@@ -16,7 +16,15 @@ const SongDuration = (props) => {
 		setSongTime(time);
 	}, [position]);
 
-	return <>{ready && <p className="font-bold text-xs">{songTime}</p>}</>;
+	return (
+		<>
+			{ready && (
+				<p className="font-bold text-xs">
+					{songTime} / {timeToReadableFormat(duration)}
+				</p>
+			)}
+		</>
+	);
 };
 SongDuration.propTypes = {
 	ready: PropTypes.bool,

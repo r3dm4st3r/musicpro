@@ -1,17 +1,17 @@
+import PageHeading from '../../common/heading/PageHeading';
 import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { HOME_DATA } from '../../../redux/reducers/music/home/home.slice';
 import HomeSongCard from './HomeSongCard';
-import PageHeading from '../../common/heading/PageHeading';
 
-const TopArtist = () => {
+const TopArtists = () => {
 	const home = useSelector(HOME_DATA);
 
 	return (
 		<div>
 			<PageHeading name="Top Artists" icon="fluent-emoji:man-singer-medium-light" />
 			<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-5">
-				{home.artists.map((item, index) => {
+				{home.artist_radio.map((item, index) => {
 					return (
 						<motion.div
 							key={item.id}
@@ -38,4 +38,4 @@ const TopArtist = () => {
 	);
 };
 
-export default TopArtist;
+export default TopArtists;

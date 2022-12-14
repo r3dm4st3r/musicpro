@@ -3,20 +3,23 @@ import { Link, useParams } from 'react-router-dom';
 import { GENERAL_BASE_ROUTES } from '../../../routes/baseRoutes';
 import { useSingleEffect } from 'react-haiku';
 import { useDispatch, useSelector } from 'react-redux';
-import { ALBUM_DETAILS, ALBUM_LOADING } from '../../../redux/reducers/music/album/album.slice';
-import { TRIGGER_ALBUM_DETAILS_DATA } from '../../../redux/actions/music/album.actions';
 import { timeToReadableFormat } from '../../../utils/global.functions';
 import Loading from '../../../components/common/Loading';
+import {
+	PLAYLIST_DETAILS,
+	PLAYLIST_LOADING,
+} from '../../../redux/reducers/music/playlist/playlist.slice';
+import { TRIGGER_PLAYLIST_DETAILS_DATA } from '../../../redux/actions/music/playlist.actions';
 import TogglePlay from '../../../components/music/player/TogglePlay';
 
-const AlbumDetailsPage = () => {
+const PlaylistDetailsPage = () => {
 	const { id } = useParams();
 	const dispatch = useDispatch();
-	const album = useSelector(ALBUM_DETAILS);
-	const loading = useSelector(ALBUM_LOADING);
+	const playlist = useSelector(PLAYLIST_DETAILS);
+	const loading = useSelector(PLAYLIST_LOADING);
 
 	useSingleEffect(() => {
-		dispatch(TRIGGER_ALBUM_DETAILS_DATA(id));
+		dispatch(TRIGGER_PLAYLIST_DETAILS_DATA(id));
 	});
 
 	if (loading.isLoading) {
@@ -32,19 +35,19 @@ const AlbumDetailsPage = () => {
 							<div className="max-w-[250px]">
 								<img
 									className="shadow-lg drop-shadow-lg"
-									src={album.thumb.lg}
-									alt={album.title}
+									src={playlist.thumb.lg}
+									alt={playlist.title}
 								/>
 							</div>
 							<div>
-								<h3 dangerouslySetInnerHTML={{ __html: album.title }} />
-								{album.subtitle && (
+								<h3 dangerouslySetInnerHTML={{ __html: playlist.title }} />
+								{playlist.subtitle && (
 									<p className={'my-2'}>
-										By {album.subtitle} - {album.song_count} songs
+										By {playlist.subtitle} - {playlist.song_count} songs
 									</p>
 								)}
-								<p>{album.description}</p>
-								<p className="my-2">{album.copyright}</p>
+								<p>{playlist.description}</p>
+								<p className="my-2">{playlist.copyright}</p>
 								<div className="mt-8 font-extrabold font-head">
 									<button className="btn py-2 px-4 flex items-center gap-1">
 										<span className="relative top-[-1px]">
@@ -62,7 +65,7 @@ const AlbumDetailsPage = () => {
 				<div className="container">
 					<div className="grid grid-cols-1">
 						<ul>
-							{album.songs.map((song, songIndex) => {
+							{playlist.songs.map((song, songIndex) => {
 								return (
 									<li
 										key={songIndex}
@@ -94,7 +97,7 @@ const AlbumDetailsPage = () => {
 						</ul>
 					</div>
 				</div>
-				{album && album.artists && (
+				{playlist && playlist.artists.length > 0 && (
 					<div className="container">
 						<div className="grid grid-cols-1 mt-10">
 							<div className="flex items-center gap-2 mb-10">
@@ -105,7 +108,7 @@ const AlbumDetailsPage = () => {
 							</div>
 						</div>
 						<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-5">
-							{album.artists.map((artist, i) => {
+							{playlist.artists.map((artist, i) => {
 								return (
 									<Link
 										to={`${GENERAL_BASE_ROUTES.ARTIST}/${artist.id}`}
@@ -132,4 +135,4 @@ const AlbumDetailsPage = () => {
 		</>
 	);
 };
-export default AlbumDetailsPage;
+export default PlaylistDetailsPage;

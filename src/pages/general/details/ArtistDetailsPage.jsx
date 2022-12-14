@@ -3,20 +3,23 @@ import { Link, useParams } from 'react-router-dom';
 import { GENERAL_BASE_ROUTES } from '../../../routes/baseRoutes';
 import { useSingleEffect } from 'react-haiku';
 import { useDispatch, useSelector } from 'react-redux';
-import { ALBUM_DETAILS, ALBUM_LOADING } from '../../../redux/reducers/music/album/album.slice';
-import { TRIGGER_ALBUM_DETAILS_DATA } from '../../../redux/actions/music/album.actions';
 import { timeToReadableFormat } from '../../../utils/global.functions';
+import { ARTIST_DETAILS, ARTIST_LOADING } from '../../../redux/reducers/music/artist/artist.slice';
+import { TRIGGER_ARTIST_DETAILS_DATA } from '../../../redux/actions/music/artist.actions';
 import Loading from '../../../components/common/Loading';
+import PageHeading from '../../../components/common/heading/PageHeading';
+import { motion } from 'framer-motion';
+import HomeSongCard from '../../../components/music/home/HomeSongCard';
 import TogglePlay from '../../../components/music/player/TogglePlay';
 
-const AlbumDetailsPage = () => {
+const ArtistDetailsPage = () => {
 	const { id } = useParams();
 	const dispatch = useDispatch();
-	const album = useSelector(ALBUM_DETAILS);
-	const loading = useSelector(ALBUM_LOADING);
+	const artist = useSelector(ARTIST_DETAILS);
+	const loading = useSelector(ARTIST_LOADING);
 
 	useSingleEffect(() => {
-		dispatch(TRIGGER_ALBUM_DETAILS_DATA(id));
+		dispatch(TRIGGER_ARTIST_DETAILS_DATA(id));
 	});
 
 	if (loading.isLoading) {
@@ -32,19 +35,19 @@ const AlbumDetailsPage = () => {
 							<div className="max-w-[250px]">
 								<img
 									className="shadow-lg drop-shadow-lg"
-									src={album.thumb.lg}
-									alt={album.title}
+									src={artist.thumb.lg}
+									alt={artist.title}
 								/>
 							</div>
 							<div>
-								<h3 dangerouslySetInnerHTML={{ __html: album.title }} />
-								{album.subtitle && (
+								<h3 dangerouslySetInnerHTML={{ __html: artist.name }} />
+								{artist.subtitle && (
 									<p className={'my-2'}>
-										By {album.subtitle} - {album.song_count} songs
+										By {artist.subtitle} - {artist.song_count} songs
 									</p>
 								)}
-								<p>{album.description}</p>
-								<p className="my-2">{album.copyright}</p>
+								<p>{artist.description}</p>
+								<p className="my-2">{artist.copyright}</p>
 								<div className="mt-8 font-extrabold font-head">
 									<button className="btn py-2 px-4 flex items-center gap-1">
 										<span className="relative top-[-1px]">
@@ -62,7 +65,7 @@ const AlbumDetailsPage = () => {
 				<div className="container">
 					<div className="grid grid-cols-1">
 						<ul>
-							{album.songs.map((song, songIndex) => {
+							{artist.songs.map((song, songIndex) => {
 								return (
 									<li
 										key={songIndex}
@@ -94,9 +97,9 @@ const AlbumDetailsPage = () => {
 						</ul>
 					</div>
 				</div>
-				{album && album.artists && (
+				{artist && artist.artists && (
 					<div className="container">
-						<div className="grid grid-cols-1 mt-10">
+						<div className="grid grid-cols-1">
 							<div className="flex items-center gap-2 mb-10">
 								<span className="text-5xl">
 									<Icon icon="fluent-emoji:man-singer-medium-light" />
@@ -105,7 +108,7 @@ const AlbumDetailsPage = () => {
 							</div>
 						</div>
 						<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-5">
-							{album.artists.map((artist, i) => {
+							{artist.artists.map((artist, i) => {
 								return (
 									<Link
 										to={`${GENERAL_BASE_ROUTES.ARTIST}/${artist.id}`}
@@ -129,7 +132,82 @@ const AlbumDetailsPage = () => {
 					</div>
 				)}
 			</section>
+			<section className="pb-10 dark:text-light">
+				<div className="container">
+					{artist.playlist.dedicated.length > 0 && (
+						<div className="mb-10">
+							<PageHeading
+								name={`More by ${artist.name}`}
+								icon="fluent-emoji:man-singer-medium-light"
+							/>
+							<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-5">
+								{artist.playlist.dedicated.map((item, index) => {
+									return (
+										<motion.div
+											key={item.id}
+											transition={{
+												delay: 0.02 * index,
+												type: 'tween',
+												ease: 'backInOut',
+												stiffness: 100,
+												bounceStiffness: 50,
+												staggerChildren: 100,
+												duration: 1,
+											}}
+											initial={{ opacity: 0, y: 100 }}
+											whileInView={{ opacity: 1, y: 0 }}
+											exit={{ opacity: 0, y: 100 }}
+											viewport={{ once: true }}
+										>
+											<HomeSongCard
+												song={item}
+												type={item.type}
+												key={`${index}${item.id}`}
+											/>
+										</motion.div>
+									);
+								})}
+							</div>
+						</div>
+					)}
+
+					<div className="mb-10">
+						<PageHeading
+							name="Featured Playlist"
+							icon="fluent-emoji:man-singer-medium-light"
+						/>
+						<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-5">
+							{artist.playlist.featured.map((item, index) => {
+								return (
+									<motion.div
+										key={item.id}
+										transition={{
+											delay: 0.02 * index,
+											type: 'tween',
+											ease: 'backInOut',
+											stiffness: 100,
+											bounceStiffness: 50,
+											staggerChildren: 100,
+											duration: 1,
+										}}
+										initial={{ opacity: 0, y: 100 }}
+										whileInView={{ opacity: 1, y: 0 }}
+										exit={{ opacity: 0, y: 100 }}
+										viewport={{ once: true }}
+									>
+										<HomeSongCard
+											song={item}
+											type={item.type}
+											key={`${index}${item.id}`}
+										/>
+									</motion.div>
+								);
+							})}
+						</div>
+					</div>
+				</div>
+			</section>
 		</>
 	);
 };
-export default AlbumDetailsPage;
+export default ArtistDetailsPage;

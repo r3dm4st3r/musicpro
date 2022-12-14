@@ -1,18 +1,28 @@
-import { useSelector } from 'react-redux';
-import { ALBUM_DATA } from '../../../redux/reducers/music/album/album.slice';
 import { motion } from 'framer-motion';
-import PageHeading from '../../common/heading/PageHeading';
+import { useDispatch, useSelector } from 'react-redux';
+import { useSingleEffect } from 'react-haiku';
+import { TRIGGER_ARTIST_DATA } from '../../../redux/actions/music/artist.actions';
+import { ARTIST_DATA, ARTIST_LOADING } from '../../../redux/reducers/music/artist/artist.slice';
 import HomeSongCard from '../home/HomeSongCard';
+import PageHeading from '../../common/heading/PageHeading';
 
-const LatestAlbum = () => {
-	const album = useSelector(ALBUM_DATA);
+const TopArtist = () => {
+	const artists = useSelector(ARTIST_DATA);
+	const loading = useSelector(ARTIST_LOADING);
+	const dispatch = useDispatch();
+
+	useSingleEffect(() => {
+		if (!loading.listsData) {
+			dispatch(TRIGGER_ARTIST_DATA());
+		}
+	});
 
 	return (
 		<>
-			<div>
-				<PageHeading name="New Albums" icon="fluent-emoji:clapper-board" />
+			<div className="mb-10">
+				<PageHeading name="Top Artists" icon="fluent-emoji:man-singer-medium-light" />
 				<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-5">
-					{album.map((item, index) => {
+					{artists.map((item, index) => {
 						return (
 							<motion.div
 								key={item.id}
@@ -43,4 +53,5 @@ const LatestAlbum = () => {
 		</>
 	);
 };
-export default LatestAlbum;
+
+export default TopArtist;

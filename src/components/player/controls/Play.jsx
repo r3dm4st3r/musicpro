@@ -7,7 +7,7 @@ const Play = (props) => {
 	return (
 		<AnimatePresence>
 			<button
-				disabled={!loading}
+				disabled={loading}
 				className="btn-action-icon relative overflow-hidden play"
 				onClick={togglePlayPause}
 			>
@@ -59,7 +59,7 @@ const Play = (props) => {
 									ease: 'linear',
 								}}
 							>
-								<span>
+								<span className="text-white">
 									<Icon icon="mdi:play" />
 								</span>
 							</motion.div>
@@ -75,7 +75,7 @@ const Play = (props) => {
 									ease: 'linear',
 								}}
 							>
-								<span>
+								<span className="text-white">
 									<Icon icon="mdi:pause" />
 								</span>
 							</motion.div>

@@ -13,13 +13,17 @@ import Repeat from './controls/Repeat';
 
 const AudioPlayer = (props) => {
 	const { audio } = props;
+
+	const song = audio?.song;
 	const [repeated, setRepeated] = useState(false);
 
 	const { togglePlayPause, mute, ready, loading, playing, fade, player } = useAudioPlayer({
-		src: audio.src,
-		format: 'mp3',
+		src: song?.url?.highest,
 		html5: false,
-		autoplay: false,
+		autoplay: true,
+		player: {
+			format: ['dolby', 'webm', 'mp3'],
+		},
 		onend: () => console.log('sound has ended!'),
 	});
 
@@ -46,14 +50,15 @@ const AudioPlayer = (props) => {
 						<div className="w-[50px] h-[50px] flex items-center justify-center">
 							<img
 								className="shadow drop-shadow rounded"
-								src={audio.thumb}
-								alt="test"
+								src={song?.thumb?.sm}
+								alt={song?.title}
 							/>
 						</div>
 						<div className="w-[calc(100%-50px)] overflow-hidden">
-							<p className="text-[14px] mb-1 font-bold font-head">
-								Manike - O lala re o lala re
-							</p>
+							<p
+								className="text-[14px] mb-1 font-bold font-head"
+								dangerouslySetInnerHTML={{ __html: song?.title }}
+							/>
 							<SongDuration ready={ready} />
 						</div>
 					</div>

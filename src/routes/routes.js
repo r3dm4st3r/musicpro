@@ -24,6 +24,8 @@ const SearchPage = lazy(() => import('../pages/general/SearchPage'));
 
 // Details Page Import
 const AlbumDetailsPage = lazy(() => import('../pages/general/details/AlbumDetailsPage'));
+const ArtistDetailsPage = lazy(() => import('../pages/general/details/ArtistDetailsPage'));
+const PlaylistDetailsPage = lazy(() => import('../pages/general/details/PlaylistDetailsPage'));
 
 // Import Dashboard Routes
 const Dashboard = lazy(() => import('../pages/general/details/AlbumDetailsPage'));
@@ -146,6 +148,24 @@ export const GENERAL_SUB_ROUTES = [
 		component: (
 			<Suspense fallback={''}>
 				<AlbumDetailsPage />
+			</Suspense>
+		),
+	},
+	{
+		path: GENERAL_BASE_SUB_ROUTES.ARTIST,
+		name: 'Artist Details',
+		component: (
+			<Suspense fallback={''}>
+				<ArtistDetailsPage />
+			</Suspense>
+		),
+	},
+	{
+		path: GENERAL_BASE_SUB_ROUTES.PLAYLIST,
+		name: 'Playlist Details',
+		component: (
+			<Suspense fallback={''}>
+				<PlaylistDetailsPage />
 			</Suspense>
 		),
 	},
