@@ -16,14 +16,14 @@ root.render(
 		<Provider store={store}>
 			<PersistGate loading={null} persistor={persistor}>
 				<Router>
-					<Suspense fallback={''}>
+					<Suspense fallback={'Loading...'}>
 						<AutoTop />
 					</Suspense>
-					<Suspense fallback={''}>
+					<Suspense fallback={'Loading...'}>
 						<Application />
 					</Suspense>
 				</Router>
 			</PersistGate>
 		</Provider>
-	</React.StrictMode>,
+	</React.StrictMode>
 );
