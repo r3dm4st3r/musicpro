@@ -11,6 +11,11 @@
 }
 
 
+/*Removes styling*/
+h1, h2, h3, h4, h5, h6, p {
+    @apply m-0;
+}
+
 /* Custom c_loader */
 .c_loader {
     @apply w-1 h-[50px] block relative text-[color:var(--mantine-color-white)] box-border animate-[animeLoader_0.3s_0.3s_linear_infinite_alternate] rounded-sm;

@@ -5,7 +5,6 @@ import { ActionIcon } from "@mantine/core";
 import { usePlayer } from "@/hooks/usePlayer";
 import { useGlobalAudioPlayer } from "react-use-audio-player";
 import { ICurrentSong } from "@/types/saavn.type";
-import { useHotkeys } from "@mantine/hooks";
 
 const PlaySong: FC<{ song: any; lists: any[]; index: number }> = ({
   song,

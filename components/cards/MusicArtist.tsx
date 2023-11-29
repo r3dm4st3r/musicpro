@@ -7,9 +7,19 @@ const MusicArtist: FC<{ artist: any; hideFansCount?: boolean }> = ({
   hideFansCount = false,
 }) => {
   return (
-    <Link href={`/artist/${artist?.id}`}>
-      <Paper shadow="xs" p="0" mb={2} pos="relative">
-        <Image radius="sm" src={artist?.image?.large} alt={artist?.title} />
+    <Paper
+      shadow="xs"
+      p="0"
+      mb={2}
+      pos="relative"
+      withBorder
+      className="overflow-hidden"
+    >
+      <Link
+        href={`/artist/${artist?.id}`}
+        className="no-underline text-[var(--mantine-primary-color-filled)]"
+      >
+        <Image src={artist?.image?.large} alt={artist?.title} />
         <div className="p-3">
           <Text
             fw="bold"
@@ -20,14 +30,14 @@ const MusicArtist: FC<{ artist: any; hideFansCount?: boolean }> = ({
           />
           {!hideFansCount && (
             <div className="flex items-center gap-2">
-              <Text component="h3" lineClamp={1}>
+              <Text component="h3" c="orange" lineClamp={1}>
                 {artist?.follower_count} Fans
               </Text>
             </div>
           )}
         </div>
-      </Paper>
-    </Link>
+      </Link>
+    </Paper>
   );
 };
 

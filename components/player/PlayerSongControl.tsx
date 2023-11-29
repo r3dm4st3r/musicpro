@@ -9,8 +9,17 @@ import AudioPlayPrev from "@/components/player/controls/AudioPlayPrev";
 import AudioPlayNext from "@/components/player/controls/AudioPlayNext";
 
 const PlayerSongControl = () => {
-  const { load, togglePlayPause, playing, volume, stop, isReady, isLoading } =
-    useGlobalAudioPlayer();
+  const {
+    load,
+    togglePlayPause,
+    playing,
+    volume,
+    stop,
+    isReady,
+    isLoading,
+    mute,
+    muted,
+  } = useGlobalAudioPlayer();
   const {
     current,
     setCurrent,
@@ -48,6 +57,7 @@ const PlayerSongControl = () => {
   }, [current?.id]);
 
   useHotkeys([["space", () => togglePlayPause()]]);
+  useHotkeys([["m", () => mute(!muted)]]);
 
   return (
     <div className="flex items-center justify-center gap-2 w-full">
