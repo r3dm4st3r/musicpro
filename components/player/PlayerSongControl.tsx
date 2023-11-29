@@ -2,7 +2,7 @@
 import { ActionIcon } from "@mantine/core";
 import { IconPlayerPause, IconPlayerPlay } from "@tabler/icons-react";
 import { useGlobalAudioPlayer } from "react-use-audio-player";
-import { useIsomorphicEffect } from "@mantine/hooks";
+import { useHotkeys, useIsomorphicEffect } from "@mantine/hooks";
 import { usePlayer } from "@/hooks/usePlayer";
 import { mediaSession } from "@/utils/media.session";
 import AudioPlayPrev from "@/components/player/controls/AudioPlayPrev";
@@ -46,6 +46,8 @@ const PlayerSongControl = () => {
       mediaSession(current);
     }
   }, [current?.id]);
+
+  useHotkeys([["space", () => togglePlayPause()]]);
 
   return (
     <div className="flex items-center justify-center gap-2 w-full">

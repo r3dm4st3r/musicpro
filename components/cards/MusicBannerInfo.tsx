@@ -11,8 +11,8 @@ import { FC } from "react";
 const MusicBannerInfo: FC<{ response: any }> = ({ response }) => {
   return (
     <div className="grid grid-cols-1">
-      <Paper withBorder>
-        <div className="flex flex-col sm:flex-row sm:items-center gap-5">
+      <Paper withBorder p="sm">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3">
           <div>
             <Image
               radius={3}

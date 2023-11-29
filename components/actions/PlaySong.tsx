@@ -5,6 +5,7 @@ import { ActionIcon } from "@mantine/core";
 import { usePlayer } from "@/hooks/usePlayer";
 import { useGlobalAudioPlayer } from "react-use-audio-player";
 import { ICurrentSong } from "@/types/saavn.type";
+import { useHotkeys } from "@mantine/hooks";
 
 const PlaySong: FC<{ song: any; lists: any[]; index: number }> = ({
   song,
@@ -12,7 +13,7 @@ const PlaySong: FC<{ song: any; lists: any[]; index: number }> = ({
   index,
 }) => {
   const { current, setCurrent, setUpcoming, setSongIndex } = usePlayer();
-  const { playing } = useGlobalAudioPlayer();
+  const { playing, togglePlayPause } = useGlobalAudioPlayer();
 
   const payload: ICurrentSong = {
     id: song?.id,
@@ -43,6 +44,7 @@ const PlaySong: FC<{ song: any; lists: any[]; index: number }> = ({
     setCurrent(payload);
     setUpcoming(upcomingPayload);
     setSongIndex(index);
+    togglePlayPause();
   };
 
   return (

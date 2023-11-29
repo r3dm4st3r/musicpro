@@ -11,7 +11,7 @@ export const fetcher = async (
       "Content-Type": "application/json",
     },
     next: {
-      revalidate: 600,
+      revalidate: 60 * 60 * 60,
     },
     ...options,
   }).then((res) => res.json());
