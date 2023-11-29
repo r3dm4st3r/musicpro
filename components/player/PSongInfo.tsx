@@ -9,7 +9,7 @@ const PSongInfo = () => {
   const { current } = usePlayer();
   const { isReady } = useGlobalAudioPlayer();
   return (
-    <div className="flex items-center gap-2 w-full max-w-[500px]">
+    <div className="flex items-center gap-2 w-full">
       <div>
         {isReady ? (
           <MusicImage

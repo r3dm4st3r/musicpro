@@ -86,7 +86,7 @@ const PlayerSongControl = () => {
   useHotkeys([["m", () => mute(!muted)]]);
 
   return (
-    <div className="flex items-center justify-end sm:justify-center gap-2 w-full">
+    <div className="flex items-center justify-end sm:justify-center gap-2 w-auto">
       <AudioPlayPrev />
       <ActionIcon
         onClick={() => togglePlayPause()}
