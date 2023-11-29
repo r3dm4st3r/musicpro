@@ -4,7 +4,6 @@ import { IconPlayerPause, IconPlayerPlay } from "@tabler/icons-react";
 import { useGlobalAudioPlayer } from "react-use-audio-player";
 import { useHotkeys, useIsomorphicEffect } from "@mantine/hooks";
 import { usePlayer } from "@/hooks/usePlayer";
-import { mediaSession } from "@/utils/media.session";
 import AudioPlayPrev from "@/components/player/controls/AudioPlayPrev";
 import AudioPlayNext from "@/components/player/controls/AudioPlayNext";
 
@@ -19,6 +18,8 @@ const PlayerSongControl = () => {
     isLoading,
     mute,
     muted,
+    play,
+    pause,
   } = useGlobalAudioPlayer();
   const {
     current,
@@ -50,9 +51,34 @@ const PlayerSongControl = () => {
     }
   }, [songIndex]);
 
+  // Set metadata for system player
   useIsomorphicEffect(() => {
     if (current?.id) {
-      mediaSession(current);
+      if ("mediaSession" in navigator) {
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: current?.title?.replaceAll("&quot;", "") ?? "Loading...",
+          artwork: [
+            {
+              src: current?.image?.large,
+              sizes: "500x500",
+              type: "image/png",
+            },
+          ],
+        });
+
+        navigator.mediaSession.setActionHandler("play", play);
+        navigator.mediaSession.setActionHandler("pause", pause);
+        navigator.mediaSession.setActionHandler("nexttrack", () => {
+          setSongIndex(
+            songIndex === upcoming.length - 1
+              ? upcoming.length - 1
+              : songIndex + 1,
+          );
+        });
+        navigator.mediaSession.setActionHandler("previoustrack", () => {
+          setSongIndex(songIndex === 0 ? 0 : songIndex - 1);
+        });
+      }
     }
   }, [current?.id]);
 

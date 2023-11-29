@@ -2,10 +2,11 @@ import PSongInfo from "@/components/player/PSongInfo";
 import PlayerSongControl from "@/components/player/PlayerSongControl";
 import PlayerAdditionalControl from "@/components/player/PlayerAdditionalControl";
 import { SongSeekBar } from "@/components/player/components/SongSeekBar";
+import { Paper } from "@mantine/core";
 
 const PlayerWrapper = () => {
   return (
-    <div className="flex items-center h-full w-full">
+    <Paper radius={0} p={0} className="flex items-center h-full w-full">
       <div className="absolute top-0 left-0 right-0">
         <SongSeekBar />
       </div>
@@ -14,7 +15,7 @@ const PlayerWrapper = () => {
         <PlayerSongControl />
         <PlayerAdditionalControl />
       </div>
-    </div>
+    </Paper>
   );
 };
 

@@ -4,6 +4,7 @@ import { IconPlayerTrackNext } from "@tabler/icons-react";
 import { ActionIcon } from "@mantine/core";
 import { useGlobalAudioPlayer } from "react-use-audio-player";
 import { usePlayer } from "@/hooks/usePlayer";
+import { useHotkeys } from "@mantine/hooks";
 
 const AudioPlayNext = () => {
   const { setSongIndex, songIndex, upcoming } = usePlayer();
@@ -12,6 +13,8 @@ const AudioPlayNext = () => {
   const handleNext = () => {
     setSongIndex(songIndex + 1);
   };
+
+  useHotkeys([["n", () => handleNext()]]);
 
   return (
     <ActionIcon
