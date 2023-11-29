@@ -10,7 +10,6 @@ export const fetcher = async (
     headers: {
       "Content-Type": "application/json",
     },
-    cache: "force-cache",
     next: {
       revalidate: 600,
     },
