@@ -52,7 +52,7 @@ export const currentSongDefault: ICurrentSong = {
 export const audioSettingsDefault: IAudioSettings = {
   autoplay: true,
   speed: SpeedEnum.NORMAL,
-  quality: QualityEnum.NORMAL,
+  quality: QualityEnum.HIGH,
 };
 
 export const playSpeed: { label: string; speed: SpeedEnum }[] = [
