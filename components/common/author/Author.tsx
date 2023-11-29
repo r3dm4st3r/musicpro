@@ -1,6 +1,6 @@
 "use client";
 import { Button, Modal } from "@mantine/core";
-import { IconHeartbeat, IconSquareRoundedX } from "@tabler/icons-react";
+import { IconSquareRoundedX, IconTrophy } from "@tabler/icons-react";
 import { FC, ReactNode } from "react";
 import { useDisclosure } from "@mantine/hooks";
 
@@ -9,15 +9,14 @@ const Author: FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <div>
       <Button
+        color="brown"
         onClick={open}
         radius="sm"
-        bg="red.1"
-        c="red"
         w={60}
         h={55}
         size="compact-sm"
       >
-        <IconHeartbeat size={40} stroke={1.5} />
+        <IconTrophy size={40} stroke={1.5} />
       </Button>
       <Modal
         size="lg"

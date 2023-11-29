@@ -21,7 +21,7 @@ const MusicListTable: FC<{ response: any[]; mini?: boolean }> = ({
   return (
     <div className="grid grid-cols-1 gap-3">
       <Paper withBorder radius="md" className="overflow-hidden">
-        <TableScrollContainer minWidth={600}>
+        <TableScrollContainer minWidth={500}>
           <Table
             striped
             highlightOnHover
