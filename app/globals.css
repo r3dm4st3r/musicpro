@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*[data-mantine-color-scheme='dark'] body {*/
+/*    color: blue;*/
+/*}*/
+
+[data-mantine-color-scheme='light'] body {
+    background: var(--mantine-color-gray-2);
+}
+
+
+/* Custom c_loader */
+.c_loader {
+    @apply w-1 h-[50px] block relative text-[color:var(--mantine-color-white)] box-border animate-[animeLoader_0.3s_0.3s_linear_infinite_alternate] rounded-sm;
+    background: currentColor;
+}
+
+.c_loader::after,
+.c_loader::before {
+    @apply content-[''] w-1 h-[50px] rounded absolute -translate-y-2/4 box-border animate-[animeLoader_0.3s_0.45s_linear_infinite_alternate] left-2.5 top-2/4;
+    background: currentColor;
+}
+
+.c_loader::before {
+    @apply -left-2.5;
+    animation-delay: 0s;
+}
+
+@keyframes animeLoader {
+    0%   { height: 28px}
+    100% { height: 4px}
+}
