@@ -11,18 +11,17 @@ import {
 const ArtistBanner: FC<{ response: any }> = ({ response }) => {
   return (
     <div className="grid grid-cols-1">
-      <Paper withBorder>
+      <Paper withBorder p="sm">
         <div className="flex flex-col sm:flex-row sm:items-center gap-5">
           <div>
             <Image
-              w={250}
-              h={250}
               radius={3}
               src={response?.image?.large}
               alt={response?.title}
+              className="sm:w-[250px] sm:h-[250px]"
             />
           </div>
-          <div>
+          <div className="sm:w-[calc(100%-250px)]">
             <div className="inline-flex items-center gap-2">
               <Text
                 fw="bold"
