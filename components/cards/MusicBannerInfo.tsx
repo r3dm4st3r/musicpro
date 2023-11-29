@@ -83,11 +83,15 @@ const MusicBannerInfo: FC<{ response: any }> = ({ response }) => {
                     return (
                       <Link href={`/artist/${artist?.id}`} key={i}>
                         <Tooltip
-                          label={artist?.name}
+                          label={
+                            <Text fw="bold" c="white">
+                              {artist?.name}
+                            </Text>
+                          }
+                          color="orange"
                           transitionProps={{ transition: "pop" }}
                           withArrow
                           arrowSize={10}
-                          color="green"
                         >
                           <Image
                             radius={3}

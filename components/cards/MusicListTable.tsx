@@ -2,6 +2,7 @@ import { FC } from "react";
 import {
   Paper,
   Table,
+  TableScrollContainer,
   TableTbody,
   TableTd,
   TableTh,
@@ -20,58 +21,60 @@ const MusicListTable: FC<{ response: any[]; mini?: boolean }> = ({
   return (
     <div className="grid grid-cols-1 gap-3">
       <Paper withBorder radius="md" className="overflow-hidden">
-        <Table
-          striped
-          highlightOnHover
-          withRowBorders
-          withColumnBorders
-          horizontalSpacing="md"
-          verticalSpacing="md"
-        >
-          <TableThead>
-            <TableTr>
-              <TableTh w={90}>#</TableTh>
-              <TableTh>Title</TableTh>
-              {!mini && <TableTh w={100}>Duration</TableTh>}
-              <TableTh w={80} align="center">
-                Action
-              </TableTh>
-            </TableTr>
-          </TableThead>
-          <TableTbody>
-            {response?.map((song: any, i: number) => {
-              return (
-                <TableTr key={i}>
-                  <TableTd align="center">
-                    <MusicImage
-                      id={song?.id}
-                      alt={song?.title}
-                      image={song?.image}
-                    />
-                  </TableTd>
-                  <TableTd>
-                    <Text
-                      fw="bold"
-                      lineClamp={1}
-                      dangerouslySetInnerHTML={{ __html: song?.title }}
-                    />
-                    {mini && Duration(song?.duration)}
-                  </TableTd>
-                  {!mini && (
-                    <TableTd>
-                      <Text fw="bold" lineClamp={1}>
-                        {Duration(song?.duration)}
-                      </Text>
+        <TableScrollContainer minWidth={600}>
+          <Table
+            striped
+            highlightOnHover
+            withRowBorders
+            withColumnBorders
+            horizontalSpacing="md"
+            verticalSpacing="md"
+          >
+            <TableThead>
+              <TableTr>
+                <TableTh w={90}>#</TableTh>
+                <TableTh>Title</TableTh>
+                {!mini && <TableTh w={100}>Duration</TableTh>}
+                <TableTh w={80} align="center">
+                  Action
+                </TableTh>
+              </TableTr>
+            </TableThead>
+            <TableTbody>
+              {response?.map((song: any, i: number) => {
+                return (
+                  <TableTr key={i}>
+                    <TableTd align="center">
+                      <MusicImage
+                        id={song?.id}
+                        alt={song?.title}
+                        image={song?.image}
+                      />
                     </TableTd>
-                  )}
-                  <TableTd align="center">
-                    <PlaySong lists={response} index={i} song={song} />
-                  </TableTd>
-                </TableTr>
-              );
-            })}
-          </TableTbody>
-        </Table>
+                    <TableTd>
+                      <Text
+                        fw="bold"
+                        lineClamp={1}
+                        dangerouslySetInnerHTML={{ __html: song?.title }}
+                      />
+                      {mini && Duration(song?.duration)}
+                    </TableTd>
+                    {!mini && (
+                      <TableTd>
+                        <Text fw="bold" lineClamp={1}>
+                          {Duration(song?.duration)}
+                        </Text>
+                      </TableTd>
+                    )}
+                    <TableTd align="center">
+                      <PlaySong lists={response} index={i} song={song} />
+                    </TableTd>
+                  </TableTr>
+                );
+              })}
+            </TableTbody>
+          </Table>
+        </TableScrollContainer>
       </Paper>
     </div>
   );

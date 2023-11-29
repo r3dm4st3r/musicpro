@@ -6,7 +6,7 @@ import AudioSettings from "@/components/player/controls/AudioSettings";
 
 const PlayerAdditionalControl = () => {
   return (
-    <div className="flex items-center justify-end gap-1 w-full">
+    <div className="items-center justify-end gap-1 w-full hidden sm:flex">
       <AudioRepeat />
       <AudioVolume />
       <AudioPlayList>
