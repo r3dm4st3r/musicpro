@@ -1,0 +1,6 @@
+.dropdown {
+    box-shadow: var(--mantine-shadow-sm);
+}
+.option[data-checked="true"] {
+    @apply bg-[var(--mantine-color-body)]
+}
