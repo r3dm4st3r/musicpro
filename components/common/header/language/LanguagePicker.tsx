@@ -2,7 +2,7 @@ import selectCss from "@/components/common/header/language/lang.module.css";
 import { Select } from "@mantine/core";
 import { IconLanguage } from "@tabler/icons-react";
 
-const languages: string[] = ["Hi", "PJ", "BH", "GJ", "EN"];
+const languages: string[] = ["Hi"];
 const LanguagePicker = () => {
   return (
     <div>

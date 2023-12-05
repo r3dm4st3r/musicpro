@@ -2,10 +2,12 @@ import { FC } from "react";
 import { Paper, Text } from "@mantine/core";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import Logo from "@/components/common/logo/Logo";
 
 const LanguagePicker = dynamic(
   () => import("@/components/common/header/language/LanguagePicker"),
 );
+const MobMenu = dynamic(() => import("@/components/common/header/MobMenu"));
 const Header: FC = () => {
   return (
     <Paper
@@ -13,26 +15,11 @@ const Header: FC = () => {
       display="flex"
       className="py-3 px-5 flex items-center justify-between h-full"
     >
-      <Link
-        href="/"
-        className="relative inline-flex text-transparent no-underline"
-      >
-        <Text
-          component="div"
-          size="40px"
-          fw={700}
-          variant="gradient"
-          gradient={{ from: "teal", to: "lime", deg: 172 }}
-        >
-          MUSIC
-        </Text>
-        <span className="font-extrabold absolute top-[-5px] right-[-40px] text-[var(--mantine-primary-color-filled)]">
-          PRO
-        </span>
-      </Link>
+      <Logo />
       <div>
-        <div>
+        <div className="flex items-center justify-end gap-2">
           <LanguagePicker />
+          <MobMenu />
         </div>
       </div>
     </Paper>

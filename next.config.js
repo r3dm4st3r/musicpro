@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   crossOrigin: "use-credentials",
   compiler: {
-    removeConsole: true,
+    removeConsole: process.env.NODE_ENV === "production",
   },
   compress: true,
   httpAgentOptions: {

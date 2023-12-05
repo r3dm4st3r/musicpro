@@ -14,7 +14,7 @@ interface IMenu {
   color: string;
   icon: ReactNode;
 }
-const menus: IMenu[] = [
+export const menus: IMenu[] = [
   {
     name: "Home",
     path: "/",
