@@ -1,7 +1,6 @@
 import { FC } from "react";
-import { Paper, Text } from "@mantine/core";
+import { Paper } from "@mantine/core";
 import dynamic from "next/dynamic";
-import Link from "next/link";
 import Logo from "@/components/common/logo/Logo";
 
 const LanguagePicker = dynamic(
