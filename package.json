@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@swc-node/core": "^1.10.6",
     "@mantine/carousel": "^7.4.2",
     "@mantine/core": "^7.4.2",
     "@mantine/hooks": "^7.4.2",
