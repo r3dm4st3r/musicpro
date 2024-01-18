@@ -46,7 +46,7 @@ const SidebarItems = () => {
             key={menu.name}
             position="right"
             withArrow
-            arrowSize={12}
+            arrowSize={11}
             transitionProps={{ transition: "pop", duration: 200 }}
           >
             <Button
