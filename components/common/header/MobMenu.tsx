@@ -46,7 +46,6 @@ const MobMenu = () => {
           {menus.map((menu, i) => {
             return (
               <Button
-                bg={menu.color}
                 w="100%"
                 h="100%"
                 size="xl"
