@@ -8,12 +8,7 @@ const PageTitle: FC<{ icon?: ReactNode; color?: string; title: string }> = ({
 }) => {
   return (
     <div className="mb-5 inline-flex items-center gap-5">
-      <ActionIcon
-        color={color}
-        size={50}
-        radius="100%"
-        className="shadow-md shadow-gray-300"
-      >
+      <ActionIcon color={color} size={50} p="xs" radius="100%">
         {icon}
       </ActionIcon>
       <Text lineClamp={1} fz={25} fw="bold">

@@ -1,6 +1,10 @@
 "use client";
 import { Button, Modal } from "@mantine/core";
-import { IconSquareRoundedX, IconTrophy } from "@tabler/icons-react";
+import {
+  IconSquareRoundedX,
+  IconTrophy,
+  IconUserCode,
+} from "@tabler/icons-react";
 import { FC, ReactNode } from "react";
 import { useDisclosure } from "@mantine/hooks";
 
@@ -9,14 +13,14 @@ const Author: FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <div>
       <Button
-        color="brown"
+        variant="default"
         onClick={open}
         radius="sm"
-        w={60}
-        h={55}
+        w={50}
+        h={45}
         size="compact-sm"
       >
-        <IconTrophy size={40} stroke={1.5} />
+        <IconUserCode size={25} stroke={1.5} />
       </Button>
       <Modal
         size="lg"

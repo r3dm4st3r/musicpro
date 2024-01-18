@@ -1,6 +1,6 @@
 import "@/app/globals.css";
-import "@mantine/core/styles.css";
-import "@mantine/carousel/styles.css";
+import "@mantine/core/styles.layer.css";
+import "@mantine/carousel/styles.layer.css";
 import type { Metadata } from "next";
 import { ReactNode } from "react";
 import { ColorSchemeScript } from "@mantine/core";

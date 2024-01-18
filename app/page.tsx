@@ -7,10 +7,10 @@ import Discover from "@/components/home/Discover";
 const HomePage = () => (
   <div>
     <div className="grid grid-rows-1 gap-5">
-      <TopCharts />
       <TrendingNow />
       <TopAlbums />
       <TopPlaylists />
+      <TopCharts />
       <Discover />
     </div>
   </div>

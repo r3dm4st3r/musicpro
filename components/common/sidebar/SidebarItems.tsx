@@ -11,33 +11,28 @@ import Link from "next/link";
 interface IMenu {
   name: string;
   path: string;
-  color: string;
   icon: ReactNode;
 }
 export const menus: IMenu[] = [
   {
     name: "Home",
     path: "/",
-    color: "indigo",
-    icon: <IconBrandGoogleHome stroke={1.5} size={40} />,
+    icon: <IconBrandGoogleHome stroke={1.5} size={25} />,
   },
   {
     name: "Albums",
     path: "/album",
-    color: "orange",
-    icon: <IconAlbum stroke={1.5} size={40} />,
+    icon: <IconAlbum stroke={1.5} size={25} />,
   },
   {
     name: "Playlists",
     path: "/playlist",
-    color: "pink",
-    icon: <IconPlaylist stroke={1.5} size={40} />,
+    icon: <IconPlaylist stroke={1.5} size={25} />,
   },
   {
     name: "Artists",
     path: "/artist",
-    color: "teal",
-    icon: <IconUserBolt stroke={1.5} size={40} />,
+    icon: <IconUserBolt stroke={1.5} size={25} />,
   },
 ];
 
@@ -47,27 +42,20 @@ const SidebarItems = () => {
       {menus.map((menu) => {
         return (
           <Tooltip
-            label={
-              <Text fw="bold" c="white">
-                {menu.name}
-              </Text>
-            }
+            label={<Text fw="bold">{menu.name}</Text>}
             key={menu.name}
             position="right"
             withArrow
             arrowSize={12}
-            color={menu.color}
             transitionProps={{ transition: "pop", duration: 200 }}
           >
             <Button
               fullWidth
               component={Link}
               href={menu.path}
-              variant="subtle"
-              bg={`${menu.color}.7`}
-              c="white"
-              w={60}
-              h={55}
+              variant="default"
+              w={50}
+              h={45}
               size="compact-lg"
               key={menu.name}
             >

@@ -19,7 +19,7 @@ const MasterLayout: FC<{ children: ReactNode }> = ({ children }) => {
     <AppShell
       header={{ height: 60 }}
       navbar={{
-        width: 100,
+        width: 90,
         breakpoint: "586px",
         collapsed: { mobile: true, desktop: false },
       }}
