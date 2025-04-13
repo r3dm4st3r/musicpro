@@ -6,7 +6,6 @@ import PageTitle from "@/components/common/heading/PageTitle";
 
 const PlaylistPage = async () => {
   const response = await fetchPlaylists().then((data) => data);
-    console.log('response', response)
   return (
     <div>
       <div className="grid grid-cols-1 gap-5">
