@@ -1,6 +1,6 @@
-import { Carousel, CarouselProps, CarouselSlide } from "@mantine/carousel";
-import { Badge, Image, Paper } from "@mantine/core";
-import { FC } from "react";
+import {Carousel, CarouselProps, CarouselSlide} from "@mantine/carousel";
+import {Badge, Image, Paper} from "@mantine/core";
+import {FC} from "react";
 import Link from "next/link";
 
 export interface ICarousel {
@@ -31,7 +31,7 @@ const HomeCarousel: FC<ICarousel> = ({ props, data }) => {
           },
         }}
       >
-        {data.map((item: any) => (
+        {data?.map((item: any) => (
           <CarouselSlide key={item?.id}>
             <Link href={`/${item?.type}/${item?.id}`}>
               <Paper shadow="xs" p="0" mb={2} pos="relative">

@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { Image, Paper } from "@mantine/core";
-import { IconAlbum } from "@tabler/icons-react";
-import { fetchAlbums } from "@/services/api/album.service";
+import {Image, Paper} from "@mantine/core";
+import {IconAlbum} from "@tabler/icons-react";
+import {fetchAlbums} from "@/services/api/album.service";
 import PageTitle from "@/components/common/heading/PageTitle";
 
 const AlbumPage = async () => {
@@ -16,7 +16,7 @@ const AlbumPage = async () => {
         />
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-5">
-        {response?.data?.map((item: any) => {
+        {response?.records?.map((item: any) => {
           return (
             <Link key={item?.id} href={`/${item?.type}/${item?.id}`}>
               <Paper shadow="xs" p="0" mb={2} pos="relative">

@@ -1,8 +1,8 @@
-import { fetchArtists } from "@/services/api/artist.service";
+import {fetchArtists} from "@/services/api/artist.service";
 import MusicArtistWrapper from "@/components/cards/MusicArtistWrapper";
 
 const ArtistPage = async () => {
-  const response = await fetchArtists().then((data) => data);
+  const response = await fetchArtists().then((data) => data.records);
   return (
     <div>
       <MusicArtistWrapper artists={response} />

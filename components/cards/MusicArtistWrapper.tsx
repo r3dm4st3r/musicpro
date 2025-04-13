@@ -1,9 +1,9 @@
-import { FC } from "react";
-import { IconBrandApplePodcast } from "@tabler/icons-react";
+import {FC} from "react";
+import {IconBrandApplePodcast} from "@tabler/icons-react";
 import MusicArtist from "@/components/cards/MusicArtist";
 import PageTitle from "@/components/common/heading/PageTitle";
 
-const MusicArtistWrapper: FC<{ artists: any; hideFansCount?: boolean }> = ({
+const MusicArtistWrapper: FC<{ artists: any[]; hideFansCount?: boolean }> = ({
   artists,
   hideFansCount = false,
 }) => {

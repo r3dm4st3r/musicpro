@@ -1,5 +1,5 @@
-import { IconBolt } from "@tabler/icons-react";
-import { fetchHome } from "@/services/api/home.service";
+import {IconBolt} from "@tabler/icons-react";
+import {fetchHome} from "@/services/api/home.service";
 import PageTitle from "@/components/common/heading/PageTitle";
 import HomeCarousel from "@/components/common/carousel/HomeCarousel";
 
