@@ -1,0 +1,14 @@
+services:
+  music:
+    build: .
+    container_name: music
+    ports:
+      - '3051:3051'
+    env_file:
+      - .env
+    networks:
+      - cloudiance
+
+networks:
+  cloudiance:
+    external: true
