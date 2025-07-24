@@ -1,11 +1,12 @@
 services:
   music:
-    build: .
+    build:
+      context: .
+      args:
+        API_SERVER: https://api.music.cloudiance.space
     container_name: music
     ports:
-      - '3051:3051'
-    env_file:
-      - .env
+      - "3051:3051"
     networks:
       - cloudiance
 

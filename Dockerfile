@@ -1,23 +1,31 @@
-# Use official Node.js 22 LTS image as a base image
+# Base image
 FROM node:22
 
-# Set the working directory in the container
+# Inject build-time variable
+ARG API_SERVER
+ENV API_SERVER=$API_SERVER
+
+# Set working directory
 WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json (or yarn.lock)
+# Copy package files and install deps
 COPY package*.json ./
-
-# Install dependencies
 RUN npm install --legacy-peer-deps
 
-# Copy the rest of the application code
+# Copy app source
 COPY . .
 
-# Build the NestJS application using the Nest CLI
+# ✅ Re-inject ENV before build so Next sees it
+ENV NEXT_PUBLIC_API_SERVER=$API_SERVER
+
+# Build the app (Next will use NEXT_PUBLIC_API_SERVER)
 RUN npm run build
 
-# Expose the port that the app will run on
+# Expose app port
 EXPOSE 3051
 
-# Start the NestJS application in production mode
+# Runtime ENV (optional)
+ENV NODE_ENV=production
+
+# Start the app
 CMD ["npm", "run", "start"]

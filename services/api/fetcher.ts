@@ -4,7 +4,7 @@ export const fetcher = async (
   endpoint: RequestInfo,
   options?: RequestInit | undefined,
 ) => {
-  const url = `${process.env.API_SERVER}${endpoint}`;
+  const url = `${process.env.NEXT_PUBLIC_API_SERVER}${endpoint}`;
   return await fetch(url, {
     method: "GET",
     headers: {

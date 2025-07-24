@@ -5,13 +5,14 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
   },
+  output: 'standalone',
   compress: true,
   httpAgentOptions: {
     keepAlive: true,
   },
   swcMinify: true,
   env: {
-    API_SERVER: process.env.API_SERVER,
+    NEXT_PUBLIC_API_SERVER: process.env.NEXT_PUBLIC_API_SERVER,
   },
   images: {
     remotePatterns: [
