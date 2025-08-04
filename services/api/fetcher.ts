@@ -5,6 +5,7 @@ export const fetcher = async (
   options?: RequestInit | undefined,
 ) => {
   const url = `${process.env.NEXT_PUBLIC_API_SERVER}${endpoint}`;
+
   return await fetch(url, {
     method: "GET",
     headers: {
