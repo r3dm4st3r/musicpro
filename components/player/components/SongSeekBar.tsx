@@ -1,11 +1,11 @@
 "use client";
 import React, { useCallback, useRef, MouseEvent, FC } from "react";
-import { useGlobalAudioPlayer } from "react-use-audio-player";
-import { Progress } from "@mantine/core";
+import { useAudioPlayer } from "react-use-audio-player";
+import { Progress } from "@toolsify/core";
 import { useAudioPosition } from "@/hooks/useAudioPosition";
 
 export const SongSeekBar: FC = () => {
-  const { duration, seek } = useGlobalAudioPlayer();
+  const { duration, seek } = useAudioPlayer();
   const position = useAudioPosition();
 
   const seekBarElem = useRef<HTMLDivElement>(null);

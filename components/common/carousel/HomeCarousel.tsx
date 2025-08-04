@@ -1,5 +1,5 @@
 import {Carousel, CarouselProps, CarouselSlide} from "@mantine/carousel";
-import {Badge, Image, Paper} from "@mantine/core";
+import {Badge, Image, Paper} from "@toolsify/core";
 import {FC} from "react";
 import Link from "next/link";
 

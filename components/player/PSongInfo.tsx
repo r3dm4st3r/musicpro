@@ -1,13 +1,13 @@
 "use client";
-import { Avatar, Text } from "@mantine/core";
+import { Avatar, Text } from "@toolsify/core";
 import { usePlayer } from "@/hooks/usePlayer";
-import { useGlobalAudioPlayer } from "react-use-audio-player";
+import { useAudioPlayer } from "react-use-audio-player";
 import SongDuration from "@/components/player/components/SongDuration";
 import MusicImage from "@/components/cards/MusicImage";
 
 const PSongInfo = () => {
   const { current } = usePlayer();
-  const { isReady } = useGlobalAudioPlayer();
+  const { isReady } = useAudioPlayer();
   return (
     <div className="flex items-center gap-2 w-full">
       <div>

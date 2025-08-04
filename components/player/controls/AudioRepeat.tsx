@@ -1,22 +1,22 @@
 "use client";
-import { IconRepeatOff, IconRepeatOnce } from "@tabler/icons-react";
-import { ActionIcon } from "@mantine/core";
-import { useGlobalAudioPlayer } from "react-use-audio-player";
+import { TbRepeatOff, TbRepeatOnce } from "@toolsify/icons/tb";
+import { ActionIcon } from "@toolsify/core";
+import { useAudioPlayer } from "react-use-audio-player";
 
 const AudioRepeat = () => {
-  const { loop, looping, isReady } = useGlobalAudioPlayer();
+  const { toggleLoop, isLooping, isReady } = useAudioPlayer();
   return (
     <ActionIcon
       disabled={!isReady}
-      onClick={() => loop(!looping)}
+      onClick={() => toggleLoop()}
       variant="subtle"
       w={40}
       h={40}
     >
-      {!looping ? (
-        <IconRepeatOff stroke={1.5} />
+      {!isLooping ? (
+        <TbRepeatOff />
       ) : (
-        <IconRepeatOnce stroke={1.5} />
+        <TbRepeatOnce />
       )}
     </ActionIcon>
   );

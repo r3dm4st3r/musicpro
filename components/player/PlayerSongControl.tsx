@@ -1,7 +1,7 @@
 "use client";
-import { ActionIcon } from "@mantine/core";
-import { IconPlayerPause, IconPlayerPlay } from "@tabler/icons-react";
-import { useGlobalAudioPlayer } from "react-use-audio-player";
+import { ActionIcon } from "@toolsify/core";
+import { AiFillPauseCircle, AiFillPlayCircle } from "@toolsify/icons/ai";
+import { useAudioPlayer } from "react-use-audio-player";
 import { useHotkeys, useIsomorphicEffect } from "@mantine/hooks";
 import { usePlayer } from "@/hooks/usePlayer";
 import AudioPlayPrev from "@/components/player/controls/AudioPlayPrev";
@@ -11,16 +11,16 @@ const PlayerSongControl = () => {
   const {
     load,
     togglePlayPause,
-    playing,
+    isPlaying,
     volume,
     stop,
     isReady,
     isLoading,
     mute,
-    muted,
+    isMuted,
     play,
     pause,
-  } = useGlobalAudioPlayer();
+  } = useAudioPlayer();
   const {
     current,
     setCurrent,
@@ -83,7 +83,7 @@ const PlayerSongControl = () => {
   }, [current?.id]);
 
   useHotkeys([["space", () => togglePlayPause()]]);
-  useHotkeys([["m", () => mute(!muted)]]);
+  useHotkeys([["m", () => mute()]]);
 
   return (
     <div className="flex items-center justify-end sm:justify-center gap-2 w-auto">
@@ -97,10 +97,10 @@ const PlayerSongControl = () => {
         disabled={!isReady}
         loading={isLoading}
       >
-        {!playing ? (
-          <IconPlayerPlay stroke={1.5} />
+        {!isPlaying ? (
+          <AiFillPauseCircle />
         ) : (
-          <IconPlayerPause stroke={1.5} />
+          <AiFillPlayCircle />
         )}
       </ActionIcon>
       <AudioPlayNext />

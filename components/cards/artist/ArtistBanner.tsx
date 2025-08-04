@@ -1,12 +1,12 @@
 import { FC } from "react";
-import { Image, Paper, Text, Tooltip } from "@mantine/core";
+import { Image, Paper, Text, Tooltip } from "@toolsify/core";
 import {
-  IconDiscountCheckFilled,
-  IconGift,
-  IconLanguage,
-  IconMusicStar,
-  IconMusicUp,
-} from "@tabler/icons-react";
+  TbDiscountFilled,
+  TbGift,
+  TbLanguage,
+  TbMusicStar,
+  TbMusicUp,
+} from "@toolsify/icons/tb";
 
 const ArtistBanner: FC<{ response: any }> = ({ response }) => {
   return (
@@ -34,7 +34,7 @@ const ArtistBanner: FC<{ response: any }> = ({ response }) => {
                   response?.isVerified ? "text-green-500" : "text-gray-300"
                 }`}
               >
-                <IconDiscountCheckFilled width={35} height={35} stroke={1.5} />
+                <TbDiscountFilled width={35} height={35} />
               </div>
             </div>
             {response?.subtitle && (
@@ -57,7 +57,7 @@ const ArtistBanner: FC<{ response: any }> = ({ response }) => {
                 >
                   <div className="flex items-center gap-2">
                     <span className="inline-flex items-center justify-center">
-                      <IconLanguage stroke={1.5} />
+                      <TbLanguage/>
                     </span>
                     <Text className="capitalize">
                       {response?.artistLanguage}
@@ -77,7 +77,7 @@ const ArtistBanner: FC<{ response: any }> = ({ response }) => {
                 >
                   <div className="flex items-center gap-2">
                     <span className="inline-flex items-center justify-center">
-                      <IconGift stroke={1.5} />
+                      <TbGift />
                     </span>
                     <Text className="capitalize">{response?.dob}</Text>
                   </div>
@@ -95,7 +95,7 @@ const ArtistBanner: FC<{ response: any }> = ({ response }) => {
                 >
                   <div className="flex items-center gap-2">
                     <span className="inline-flex items-center justify-center">
-                      <IconMusicStar stroke={1.5} />
+                      <TbMusicStar />
                     </span>
                     <Text className="capitalize">{response?.fan_count}</Text>
                   </div>
@@ -113,7 +113,7 @@ const ArtistBanner: FC<{ response: any }> = ({ response }) => {
                 >
                   <div className="flex items-center gap-2">
                     <span className="inline-flex items-center justify-center">
-                      <IconMusicUp stroke={1.5} />
+                      <TbMusicUp />
                     </span>
                     <Text>{response?.follower_count}</Text>
                   </div>

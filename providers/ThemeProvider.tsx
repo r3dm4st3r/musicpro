@@ -1,26 +1,18 @@
 import { FC, ReactNode } from "react";
-import { MantineProvider } from "@mantine/core";
-import { theme } from "@/theme";
-import { mode } from "@/app/layout";
+import {ThemeProvider} from "@toolsify/core/providers";
 import dynamic from "next/dynamic";
 import PlayerProvider from "@/providers/PlayerProvider";
 
 const MasterLayout = dynamic(() => import("@/layout/MasterLayout"));
 
-const ThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
+const BaseThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
   return (
-    <MantineProvider
-      defaultColorScheme={mode}
-      forceColorScheme={mode}
-      classNamesPrefix="r3dm4st3r"
-      theme={theme}
-      withCssVariables
-    >
+    <ThemeProvider>
       <PlayerProvider>
         <MasterLayout>{children}</MasterLayout>
       </PlayerProvider>
-    </MantineProvider>
+    </ThemeProvider>
   );
 };
 
-export default ThemeProvider;
+export default BaseThemeProvider;

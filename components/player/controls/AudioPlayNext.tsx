@@ -1,14 +1,14 @@
 "use client";
 
-import { IconPlayerTrackNext } from "@tabler/icons-react";
-import { ActionIcon } from "@mantine/core";
-import { useGlobalAudioPlayer } from "react-use-audio-player";
+import { TbPlayerTrackNext } from "@toolsify/icons/tb";
+import { ActionIcon } from "@toolsify/core";
+import { useAudioPlayer } from "react-use-audio-player";
 import { usePlayer } from "@/hooks/usePlayer";
 import { useHotkeys } from "@mantine/hooks";
 
 const AudioPlayNext = () => {
   const { setSongIndex, songIndex, upcoming } = usePlayer();
-  const { isReady } = useGlobalAudioPlayer();
+  const { isReady } = useAudioPlayer();
 
   const handleNext = () => {
     setSongIndex(songIndex + 1);
@@ -24,7 +24,7 @@ const AudioPlayNext = () => {
       h={40}
       disabled={!isReady || songIndex === upcoming.length - 1}
     >
-      <IconPlayerTrackNext stroke={1.5} />
+      <TbPlayerTrackNext  />
     </ActionIcon>
   );
 };

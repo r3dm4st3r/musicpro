@@ -1,7 +1,7 @@
 import AuthorBg from "@/assets/img/1.svg";
 import Image from "next/image";
-import { Button, Paper, Tooltip } from "@mantine/core";
-import { IconBrandGithub } from "@tabler/icons-react";
+import { Button, Paper, Tooltip } from "@toolsify/core";
+import { TbBrandGithub } from "@toolsify/icons/tb";
 const AuthorInfo = () => {
   return (
     <Paper className="w-full relative overflow-hidden">
@@ -38,7 +38,7 @@ const AuthorInfo = () => {
                 variant="outline"
                 h={40}
               >
-                <IconBrandGithub stroke={1.5} />
+                <TbBrandGithub />
               </Button>
             </Tooltip>
           </div>

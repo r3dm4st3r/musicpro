@@ -1,12 +1,10 @@
 "use client";
-import { Button, Modal } from "@mantine/core";
+import { Button, Modal, useDisclosure } from "@toolsify/core";
 import {
-  IconSquareRoundedX,
-  IconTrophy,
-  IconUserCode,
-} from "@tabler/icons-react";
+  AiFillX,
+  AiFillTrophy,
+} from "@toolsify/icons/ai";
 import { FC, ReactNode } from "react";
-import { useDisclosure } from "@mantine/hooks";
 
 const Author: FC<{ children: ReactNode }> = ({ children }) => {
   const [opened, { open, close }] = useDisclosure(false);
@@ -20,7 +18,7 @@ const Author: FC<{ children: ReactNode }> = ({ children }) => {
         h={45}
         size="compact-sm"
       >
-        <IconUserCode size={25} stroke={1.5} />
+        <AiFillTrophy size={25} />
       </Button>
       <Modal
         size="lg"
@@ -36,7 +34,7 @@ const Author: FC<{ children: ReactNode }> = ({ children }) => {
         {children}
         <div className="absolute top-3 right-3">
           <div role="button" onClick={close}>
-            <IconSquareRoundedX stroke={1.5} size={60} color="white" />
+            <AiFillX  />
           </div>
         </div>
       </Modal>

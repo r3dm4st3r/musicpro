@@ -1,12 +1,12 @@
 "use client";
 import { FC, ReactNode } from "react";
-import { IconPlaylist } from "@tabler/icons-react";
-import { ActionIcon, Drawer, ScrollAreaAutosize } from "@mantine/core";
+import { FaTableList } from "@toolsify/icons/fa6";
+import { ActionIcon, Drawer, ScrollAreaAutosize } from "@toolsify/core";
 import { useDisclosure } from "@mantine/hooks";
-import { useGlobalAudioPlayer } from "react-use-audio-player";
+import { useAudioPlayer } from "react-use-audio-player";
 
 const AudioPlayList: FC<{ children: ReactNode }> = ({ children }) => {
-  const { isReady } = useGlobalAudioPlayer();
+  const { isReady } = useAudioPlayer();
   const [opened, { open, close }] = useDisclosure(false);
   return (
     <div>
@@ -17,7 +17,7 @@ const AudioPlayList: FC<{ children: ReactNode }> = ({ children }) => {
         w={40}
         h={40}
       >
-        <IconPlaylist stroke={1.5} />
+        <FaTableList />
       </ActionIcon>
 
       <Drawer
@@ -29,7 +29,7 @@ const AudioPlayList: FC<{ children: ReactNode }> = ({ children }) => {
         title={
           <div className="flex items-center gap-2">
             <span>
-              <IconPlaylist stroke={1.5} />
+              <FaTableList />
             </span>{" "}
             <span>Upcoming Playlist</span>
           </div>

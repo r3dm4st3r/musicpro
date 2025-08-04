@@ -1,6 +1,6 @@
 import selectCss from "@/components/common/header/language/lang.module.css";
-import { Select } from "@mantine/core";
-import { IconLanguage } from "@tabler/icons-react";
+import { Select } from "@toolsify/core";
+import { TbLanguage } from "@toolsify/icons/tb";
 
 const languages: string[] = ["Hi"];
 const LanguagePicker = () => {
@@ -17,7 +17,7 @@ const LanguagePicker = () => {
         withCheckIcon={false}
         defaultValue={languages[0]}
         data={languages}
-        leftSection={<IconLanguage stroke={1.5} />}
+        leftSection={<TbLanguage />}
       />
     </div>
   );

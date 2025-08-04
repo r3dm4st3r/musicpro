@@ -1,6 +1,6 @@
 import { FC } from "react";
 import Link from "next/link";
-import { Image, Paper, Text } from "@mantine/core";
+import { Image, Paper, Text } from "@toolsify/core";
 
 const MusicArtist: FC<{ artist: any; hideFansCount?: boolean }> = ({
   artist,

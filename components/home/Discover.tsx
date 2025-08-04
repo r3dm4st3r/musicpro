@@ -1,4 +1,4 @@
-import { IconAnalyze } from "@tabler/icons-react";
+import { TbAnalyze } from "@toolsify/icons/tb";
 import { fetchHome } from "@/services/api/home.service";
 import PageTitle from "@/components/common/heading/PageTitle";
 import HomeCarousel from "@/components/common/carousel/HomeCarousel";
@@ -10,7 +10,7 @@ const Discover = async () => {
         <PageTitle
           title="Discover"
           color="teal.1"
-          icon={<IconAnalyze size={30} color="teal" stroke={1.5} />}
+          icon={<TbAnalyze size={30} color="teal" />}
         />
         <HomeCarousel data={response} />
       </div>

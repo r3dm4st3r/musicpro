@@ -1,6 +1,6 @@
 import Link from "next/link";
-import {Image, Paper} from "@mantine/core";
-import {IconPlaylist} from "@tabler/icons-react";
+import {Image, Paper} from "@toolsify/core";
+import {TbPlaylist} from "@toolsify/icons/tb";
 import {fetchPlaylists} from "@/services/api/playlist.service";
 import PageTitle from "@/components/common/heading/PageTitle";
 
@@ -12,7 +12,7 @@ const PlaylistPage = async () => {
         <PageTitle
           title="Playlists"
           color="pink.1"
-          icon={<IconPlaylist size={30} color="red" stroke={1.5} />}
+          icon={<TbPlaylist size={30} color="red" />}
         />
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-5">

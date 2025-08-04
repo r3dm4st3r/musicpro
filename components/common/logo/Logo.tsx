@@ -1,5 +1,5 @@
 import React from "react";
-import { Text } from "@mantine/core";
+import { Text } from "@toolsify/core";
 import Link from "next/link";
 
 const Logo = () => {

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Paper } from "@mantine/core";
+import { Paper } from "@toolsify/core";
 import dynamic from "next/dynamic";
 import Logo from "@/components/common/logo/Logo";
 

@@ -1,9 +1,9 @@
 "use client";
 import React, { FC } from "react";
-import { IconPlayerPause, IconPlayerPlay } from "@tabler/icons-react";
-import { ActionIcon } from "@mantine/core";
+import { AiFillPlaySquare, AiFillPauseCircle } from "@toolsify/icons/ai";
+import { ActionIcon } from "@toolsify/core";
 import { usePlayer } from "@/hooks/usePlayer";
-import { useGlobalAudioPlayer } from "react-use-audio-player";
+import { useAudioPlayer } from "react-use-audio-player";
 import { ICurrentSong } from "@/types/saavn.type";
 
 const PlaySong: FC<{ song: any; lists: any[]; index: number }> = ({
@@ -12,7 +12,7 @@ const PlaySong: FC<{ song: any; lists: any[]; index: number }> = ({
   index,
 }) => {
   const { current, setCurrent, setUpcoming, setSongIndex } = usePlayer();
-  const { playing, togglePlayPause } = useGlobalAudioPlayer();
+  const { isPlaying, togglePlayPause } = useAudioPlayer();
 
   const payload: ICurrentSong = {
     id: song?.id,
@@ -56,10 +56,10 @@ const PlaySong: FC<{ song: any; lists: any[]; index: number }> = ({
       type="button"
       onClick={(event) => handlePlay(event)}
     >
-      {song?.id === current?.id && playing ? (
-        <IconPlayerPause stroke={1.5} />
+      {song?.id === current?.id && isPlaying ? (
+        <AiFillPauseCircle/>
       ) : (
-        <IconPlayerPlay stroke={1.5} />
+        <AiFillPlaySquare />
       )}
     </ActionIcon>
   );

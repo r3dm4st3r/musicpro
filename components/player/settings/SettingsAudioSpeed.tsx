@@ -1,16 +1,16 @@
 "use client";
-import { IconRocket } from "@tabler/icons-react";
-import { Button } from "@mantine/core";
+import { TbRocket } from "@toolsify/icons/tb";
+import { Button } from "@toolsify/core";
 import { usePlayer } from "@/hooks/usePlayer";
 import { SpeedEnum } from "@/types/saavn.type";
-import { useGlobalAudioPlayer } from "react-use-audio-player";
+import { useAudioPlayer } from "react-use-audio-player";
 import { useIsomorphicEffect } from "@mantine/hooks";
 import { playSpeed } from "@/components/player/player.constant";
 
 const SettingsAudioSpeed = () => {
   const { audioSettings, setAudioSettings } = usePlayer();
   const { speed } = audioSettings;
-  const { setRate } = useGlobalAudioPlayer();
+  const { setRate } = useAudioPlayer();
   const handleClick = (value: SpeedEnum) => {
     setAudioSettings((prev) => {
       return {
@@ -30,7 +30,7 @@ const SettingsAudioSpeed = () => {
   return (
     <div className="flex items-center justify-between gap-2">
       <h4 className="flex items-center gap-3">
-        <IconRocket stroke={1.5} />
+        <TbRocket  />
         <span>Speed</span>
       </h4>
       <Button.Group>

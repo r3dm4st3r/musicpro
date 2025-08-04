@@ -1,7 +1,7 @@
 import Image from "next/image";
 // @ts-ignore
 import NotFoundImage from "@/assets/img/not.png";
-import { Paper } from "@mantine/core";
+import { Paper } from "@toolsify/core";
 const NotFound = () => {
   return (
     <div>

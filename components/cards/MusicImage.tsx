@@ -1,15 +1,14 @@
 "use client";
 import React, { FC } from "react";
-import { Box, Drawer, Image, Text } from "@mantine/core";
+import { Box, Drawer, Image, Text, useDisclosure } from "@toolsify/core";
 import { IMusicImage } from "@/types/saavn.type";
 import { usePlayer } from "@/hooks/usePlayer";
-import { useGlobalAudioPlayer } from "react-use-audio-player";
-import { IconPlayerPlay } from "@tabler/icons-react";
-import { useDisclosure } from "@mantine/hooks";
+import { useAudioPlayer } from "react-use-audio-player";
+import { AiFillPlaySquare } from "@toolsify/icons/ai";
 
 const MusicImage: FC<IMusicImage> = ({ id, alt, image, showLoader = true }) => {
   const { current } = usePlayer();
-  const { playing, togglePlayPause } = useGlobalAudioPlayer();
+  const { isPlaying, togglePlayPause } = useAudioPlayer();
   const [opened, { open, close }] = useDisclosure(false);
 
   const ResumePlayback: FC = () => {
@@ -19,7 +18,7 @@ const MusicImage: FC<IMusicImage> = ({ id, alt, image, showLoader = true }) => {
         onClick={togglePlayPause}
         className="bg-black/40 absolute cursor-pointer inset-0 flex items-center justify-center rounded"
       >
-        <IconPlayerPlay />
+        <AiFillPlaySquare />
       </div>
     );
   };
@@ -50,7 +49,7 @@ const MusicImage: FC<IMusicImage> = ({ id, alt, image, showLoader = true }) => {
         />
         {id === current?.id &&
           showLoader &&
-          (playing ? <ShowMusicDetails /> : <ResumePlayback />)}
+          (isPlaying ? <ShowMusicDetails /> : <ResumePlayback />)}
       </Box>
 
       <Drawer

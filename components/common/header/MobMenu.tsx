@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import { Button, Drawer, Text } from "@mantine/core";
-import { IconMenuDeep } from "@tabler/icons-react";
+import { Button, Drawer, Text } from "@toolsify/core";
+import { AiOutlineMenuFold } from "@toolsify/icons/ai";
 import {
   useDisclosure,
   useIsomorphicEffect,
@@ -26,7 +26,7 @@ const MobMenu = () => {
   return (
     <>
       <Button h={42} variant="light" onClick={open}>
-        <IconMenuDeep stroke={1.5} />
+        <AiOutlineMenuFold />
       </Button>
       <Drawer
         opened={opened}

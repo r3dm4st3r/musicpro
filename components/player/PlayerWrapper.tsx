@@ -2,7 +2,7 @@ import PSongInfo from "@/components/player/PSongInfo";
 import PlayerSongControl from "@/components/player/PlayerSongControl";
 import PlayerAdditionalControl from "@/components/player/PlayerAdditionalControl";
 import { SongSeekBar } from "@/components/player/components/SongSeekBar";
-import { Paper } from "@mantine/core";
+import { Paper } from "@toolsify/core";
 
 const PlayerWrapper = () => {
   return (

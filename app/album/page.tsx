@@ -1,5 +1,5 @@
 import Link from "next/link";
-import {Image, Paper} from "@mantine/core";
+import {Image, Paper} from "@toolsify/core";
 import {IconAlbum} from "@tabler/icons-react";
 import {fetchAlbums} from "@/services/api/album.service";
 import PageTitle from "@/components/common/heading/PageTitle";

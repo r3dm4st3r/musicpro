@@ -9,7 +9,7 @@ import {
   TableThead,
   TableTr,
   Text,
-} from "@mantine/core";
+} from "@toolsify/core";
 import { Duration } from "@/utils";
 import PlaySong from "@/components/actions/PlaySong";
 import MusicImage from "@/components/cards/MusicImage";

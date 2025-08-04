@@ -1,4 +1,4 @@
-import { IconChartArcs3 } from "@tabler/icons-react";
+import { TbChartArcs3 } from "@toolsify/icons/tb";
 import { fetchHome } from "@/services/api/home.service";
 import PageTitle from "@/components/common/heading/PageTitle";
 import HomeCarousel from "@/components/common/carousel/HomeCarousel";
@@ -10,7 +10,7 @@ const TopPlaylists = async () => {
         <PageTitle
           title="Top Playlists"
           color="orange.1"
-          icon={<IconChartArcs3 size={30} color="orange" stroke={1.5} />}
+          icon={<TbChartArcs3 size={30} color="orange" />}
         />
         <HomeCarousel data={response} />
       </div>

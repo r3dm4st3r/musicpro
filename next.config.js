@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  serverExternalPackages: ["@toolsify/icons", "@toolsify/core", "@mantine/core", "@mantine/hooks"],
   crossOrigin: "use-credentials",
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
@@ -10,7 +11,6 @@ const nextConfig = {
   httpAgentOptions: {
     keepAlive: true,
   },
-  swcMinify: true,
   env: {
     "NEXT_PUBLIC_API_SERVER": "https://api.music.cloudiance.space/api/v1/saavn",
   },

@@ -1,11 +1,11 @@
 import { ReactNode } from "react";
 import {
-  IconAlbum,
-  IconBrandGoogleHome,
-  IconPlaylist,
-  IconUserBolt,
-} from "@tabler/icons-react";
-import { Button, Text, Tooltip } from "@mantine/core";
+  TbAlbum,
+TbBrandGoogle,
+  TbList,
+  TbBolt,
+} from "@toolsify/icons/tb";
+import { Button, Text, Tooltip } from "@toolsify/core";
 import Link from "next/link";
 
 interface IMenu {
@@ -17,22 +17,22 @@ export const menus: IMenu[] = [
   {
     name: "Home",
     path: "/",
-    icon: <IconBrandGoogleHome stroke={1.5} size={25} />,
+    icon: <TbBrandGoogle size={25} />,
   },
   {
     name: "Albums",
     path: "/album",
-    icon: <IconAlbum stroke={1.5} size={25} />,
+    icon: <TbAlbum size={25} />,
   },
   {
     name: "Playlists",
     path: "/playlist",
-    icon: <IconPlaylist stroke={1.5} size={25} />,
+    icon: <TbList size={25} />,
   },
   {
     name: "Artists",
     path: "/artist",
-    icon: <IconUserBolt stroke={1.5} size={25} />,
+    icon: <TbBolt size={25} />,
   },
 ];
 

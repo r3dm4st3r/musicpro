@@ -1,11 +1,11 @@
 import "@/app/globals.css";
-import "@mantine/core/styles.layer.css";
-import "@mantine/carousel/styles.layer.css";
+import "@toolsify/core/styles.layer.css";
+import "@toolsify/carousel/styles.layer.css";
 import type { Metadata } from "next";
 import { ReactNode } from "react";
-import { ColorSchemeScript } from "@mantine/core";
+import { ColorSchemeScript } from "@toolsify/core";
 import { Montserrat } from "next/font/google";
-import ThemeProvider from "@/providers/ThemeProvider";
+import BaseThemeProvider from "@/providers/ThemeProvider";
 
 const baseFont = Montserrat({
   subsets: ["latin"],
@@ -32,7 +32,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
         <ColorSchemeScript defaultColorScheme={mode} />
       </head>
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <BaseThemeProvider>{children}</BaseThemeProvider>
       </body>
     </html>
   );

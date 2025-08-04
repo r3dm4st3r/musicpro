@@ -1,6 +1,6 @@
 "use client";
-import { IconMusicCog } from "@tabler/icons-react";
-import { Button } from "@mantine/core";
+import { TbMusicCog } from "@toolsify/icons/tb";
+import { Button } from "@toolsify/core";
 import { audioQuality } from "@/components/player/player.constant";
 import { usePlayer } from "@/hooks/usePlayer";
 import { QualityEnum } from "@/types/saavn.type";
@@ -21,7 +21,7 @@ const SettingsAudioQuality = () => {
   return (
     <div className="flex flex-col items-start gap-2">
       <h4 className="flex items-center gap-3">
-        <IconMusicCog stroke={1.5} />
+        <TbMusicCog />
         <span>Audio Quality</span>
       </h4>
       <Button.Group w="100%">

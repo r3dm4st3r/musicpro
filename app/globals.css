@@ -1,10 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/*[data-mantine-color-scheme='dark'] body {*/
-/*    color: blue;*/
-/*}*/
+@import "tailwindcss";
 
 [data-mantine-color-scheme='light'] body {
     background: var(--mantine-color-gray-2);

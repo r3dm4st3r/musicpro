@@ -1,4 +1,4 @@
-import { Image, Paper, Text, Tooltip } from "@mantine/core";
+import { Image, Paper, Text, Tooltip } from "@toolsify/core";
 import {
   IconCalendar,
   IconLanguage,

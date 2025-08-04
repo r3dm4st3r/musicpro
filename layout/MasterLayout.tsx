@@ -7,7 +7,7 @@ import {
   AppShellMain,
   AppShellNavbar,
   ScrollAreaAutosize,
-} from "@mantine/core";
+} from "@toolsify/core";
 const Header = dynamic(() => import("@/components/common/header/Header"));
 const Sidebar = dynamic(() => import("@/components/common/sidebar/Sidebar"));
 const PlayerWrapper = dynamic(

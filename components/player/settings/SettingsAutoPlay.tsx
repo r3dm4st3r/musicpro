@@ -1,6 +1,6 @@
 "use client";
-import { IconMusicCheck } from "@tabler/icons-react";
-import { Switch } from "@mantine/core";
+import { TbMusicCheck } from "@toolsify/icons/tb";
+import { Switch } from "@toolsify/core";
 import { usePlayer } from "@/hooks/usePlayer";
 
 const SettingsAutoPlay = () => {
@@ -17,7 +17,7 @@ const SettingsAutoPlay = () => {
   return (
     <div className="flex items-center justify-between gap-2">
       <h4 className="flex items-center gap-3">
-        <IconMusicCheck stroke={1.5} />
+        <TbMusicCheck />
         <span>Autoplay</span>
       </h4>
       <Switch

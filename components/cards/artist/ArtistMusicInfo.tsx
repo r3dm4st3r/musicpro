@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import Link from "next/link";
-import { IconMusic } from "@tabler/icons-react";
-import { Image, Paper } from "@mantine/core";
+import { TbMusic } from "@toolsify/icons/tb";
+import { Image, Paper } from "@toolsify/core";
 import PageTitle from "@/components/common/heading/PageTitle";
 
 const ArtistMusicInfo: FC<{ response: string[]; title: string }> = ({
@@ -15,7 +15,7 @@ const ArtistMusicInfo: FC<{ response: string[]; title: string }> = ({
         <PageTitle
           title={title}
           color="red.1"
-          icon={<IconMusic size={30} color="red" stroke={1.5} />}
+          icon={<TbMusic size={30} color="red" />}
         />
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">

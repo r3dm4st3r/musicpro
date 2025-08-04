@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from "react";
-import { ActionIcon, Text } from "@mantine/core";
+import { ActionIcon, Text } from "@toolsify/core";
 
 const PageTitle: FC<{ icon?: ReactNode; color?: string; title: string }> = ({
   title,

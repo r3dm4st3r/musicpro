@@ -1,4 +1,4 @@
-import { IconMusicBolt } from "@tabler/icons-react";
+import { TbMusicBolt } from "@toolsify/icons/tb";
 import PageTitle from "@/components/common/heading/PageTitle";
 import { fetchHome } from "@/services/api/home.service";
 import HomeCarousel from "@/components/common/carousel/HomeCarousel";
@@ -10,7 +10,7 @@ const TopAlbums = async () => {
       <PageTitle
         title="Fresh Albums"
         color="red.1"
-        icon={<IconMusicBolt size={30} color="red" stroke={1.5} />}
+        icon={<TbMusicBolt size={30} color="red" />}
       />
       <HomeCarousel data={response} />
     </div>
