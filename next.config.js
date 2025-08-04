@@ -11,6 +11,9 @@ const nextConfig = {
     keepAlive: true,
   },
   swcMinify: true,
+  env: {
+    "NEXT_PUBLIC_API_SERVER": "https://api.music.cloudiance.space/api/v1/saavn",
+  },
   images: {
     remotePatterns: [
       {
